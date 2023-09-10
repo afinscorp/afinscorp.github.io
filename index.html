@@ -13,18 +13,23 @@ window.location=i.value;
 <style>
 body {
 	margin:0;
-	background-image: url('db_background/City.jpg');
+	background-image: url('db_background/pohon.jpg');
 	height : 100%;
 	width: 100%;
 	background-repeat: no-repeat
 	background-position: top;
 	background-attachment: fixed;
 	background-size: cover;
+	display : flex;
+	align-items: center;
+	justify-content:center;
+	margin: 0 auto;
+	height: 100vh;
 }
 
 .navbar {
   overflow: hidden;
-  background-color: #004d71;
+  background-color: #1faf70;
   position: fixed;
   top: 0;
   width: 100%;
@@ -35,7 +40,7 @@ body {
 .navbar a {
   float: left;
   display: inline-block;
-  color: #8ab4f8;
+  color: #99ffb4;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -46,8 +51,8 @@ body {
 }
 
 .navbar a:hover {
-  background: #90c6e9;
-  color: #004d71;
+  background: #54d676;
+  color: white;
   transition: background-color 1.0s;
 }
 
@@ -73,59 +78,10 @@ img {
 footer {
             background-color:none;
             color: white;
-            padding: 10px;
+            padding: 100px;
             margin:0;
 			position
 }
-html, body, section
-{
-    height: 100%;
-}
- 
-html
-{
-    scroll-behavior: smooth;
-}
- 
-nav li
-{
-    float: left;
-    margin-left: 20px;
-}
- 
-nav ul li a
-{
-    display: block;
-    padding: 15px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
- 
-nav ul li a:hover
-{
-    background-color:black;
-    transition-duration: 2s;
-}
- 
-section
-{
-    padding: 20%;
-}
- 
-h2
-{
-    margin-bottom: 20px;
-}
- 
-#menu1,#menu2,#menu3
-{
-    color: white;
-}
-
-</style>
-
-<style>
 input {
 			display: right;
 			align-items:center;
@@ -143,7 +99,7 @@ select {
 			margin-top: 10px;
 			font-family: cursive, sans-serif;
 			outline: 0;
-			background: #003991f0;
+			background: #7dab97;
 			border: 20px solid crismson;
 			padding: 4px;
 			border-radius: 100px;
@@ -154,20 +110,20 @@ select {
 			float: left;
 			width: 78%;
 }
-.dropdown {
+.dropdown, {
 			color: white;
 			font-color: white;
 			height: 50px;
 			opacity: 0,8;
 }
 input {
-		background-color: #90c6e9;
-		font-color:#004d71;
+		background-color: #198276;
+		font-color: #7dab97;
 		height: 50px;
 		width: 20%;
 		border-radius: 50px;
 		border: none;
-		color: #004d71;
+		color: #35e3ff;
 		cursor: pointer;
 		font-size: 15px;
 		float: right;
@@ -179,66 +135,42 @@ input {
 <body>
 
 <div class="navbar">
-  <font face="arial"><a href="#menu1">Beranda</a></font>
-  <font face="arial"><a href="#menu2">Aplikasi</a></font>
-  <font face="arial"><a href="#menu3">Tentang</a></font>
+  <font face="arial"><a href="#">Beranda</a></font>
+  <font face="arial"><a href="Menu.html">menu</a></font>
 </div>
 
 <div class="main">
 
-	<section id="menu1">
-	
-	
-<center>
-				<Img src="db_icon/Icon INS.png" style="width: 120px">
+			<center>
+				<Img src="db_icon/Icon INS.png" style="width: 80px">
 					<div class="dropdown"
 						form action="option">
 							<font size="5" font color="white" font face="arial"><label for="lang" ></label></font>
-								<font face="arial"><select name="languages" id="target-url" ></font>
+								<select name="languages" id="target-url" >
 									<optgroup label="Mesin pencarian">
 									<option value="http://google.com/">Google</option>
 									<option value="https://www.bing.com/">Bing</option>
-									<option value="https://www.bing.com/search?form=NTPCHB&q=Bing+AI&showconv=1">ChatBing (suport di microsoft edge) </option>
+									<option value="https://www.bing.com/search?form=NTPCHB&q=Bing+AI&showconv=1">ChatBing</option>
 								</optgroup>
 								<optgroup label="Aplikasi google">
-									<option value="#">404</option>
-									<option value="#">404</option>
+									<option value="javascript">google DOC</option>
+									<option value="javascript">Google PPT</option>
 								</optgroup>
-								<optgroup label="Aplikasi INS & akses cepat">
-									<option value="https://www.youtube.com/">you tube</option>
+								<optgroup label="Akses cepat">
+									<option value="https://youtube.com/">youtube</option>
 									<option value="https://tv3.lk21official.pro/">LK21</option>
+									<option value="https://itch.io/games">itch games</option>
 									<option value="https://www.y2mate.com/id748/youtube-mp3">y2mate</option>
-								<optgroup label="Sosial Media">
-									<option value="https://www.instagram.com/">Instagram</option>
-									<option value="https://www.facebook.com/">Facbook</option>
-									<option value="https://www.tiktok.com/explore">Tiktok</option>
-									<option value="https://web.whatsapp.com/">Whatasapp</option>
-									<option value="https://www.dicoding.com/blog/dasar-tampilan-responsif-pada-website/">Teknik HTML</option>
 								</select>
 							<input type="submit" onclick="goto()" value="Mulai"/>
 					</form>
 				</div>
 			</br>
 		</center>	
-    </section>
-	
- 
-    <section id="menu2">
-        <h2>Aplikasi</h2>
-        <p>
-            Akan segera hadir. (404)
-        </p>
-    </section>
- 
-    <section id="menu3">
-        <h2>Tentang</h2>
-        <p>
-            Selamat datang di INS Go Lite. (2023) => https://afinscorp.github.io/
-        </p>
-    </section>
- 
+		<footer>
+			<center><font face="Arial"><h3>AFINS.Inc 2023</font></h3></center>
+		</footer>
 </div>
 
 </body>
-
 </html>
