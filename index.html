@@ -138,6 +138,7 @@ input {
 
 <div class="navbar">
   <font face="arial"><a href="Menu.html">menu</a></font>
+  <p id="time" style="margin-left:70%;font-size:18px;font-weight:bolder;color:#a1aff7;text-shadow:  1px 2px 25px;text-align:center">404</p>
 </div>
 
 <div class="main">
@@ -173,6 +174,29 @@ input {
 			<center><font face="Arial"><h3>AFINS.Inc 2023</font></h3></center>
 		</footer>
 </div>
+
+<script>
+var gt= document.getElementById("time");
+
+setInterval(function(){
+
+gt.innerText=new Date().toLocaleTimeString();
+
+if(gt.style.color=="green"){
+
+gt.style.color="blue"
+}
+
+else if(gt.style.color=="#9ce7ff"){
+gt.style.color="red";
+}
+
+else if(gt.style.color=="red"){
+gt.style.color="green";
+}
+
+},122)
+</script>
 
 </body>
 </html>
