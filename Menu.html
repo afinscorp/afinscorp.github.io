@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>menu</title>
+    <title>Game</title>
 		<link rel="icon" href="db_icon/Icon INS.png"></link>
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
@@ -40,7 +40,7 @@ body {
 .navbar a {
   float: left;
   display: inline-block;
-  color: #99ffb4;
+  color: #8a9bf5;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -51,7 +51,7 @@ body {
 }
 
 .navbar a:hover {
-  background: #54d676;
+  background: #1e75d157;
   color: white;
   transition: background-color 1.0s;
 }
@@ -99,7 +99,7 @@ select {
 			margin-top: 12px;
 			font-family: cursive, sans-serif;
 			outline: 0;
-   background: #153cad;
+			background:#153cad;
 			border: 20px solid crismson;
 			padding: 4px;
 			border-radius: 100px;
@@ -117,7 +117,7 @@ select {
 			opacity: 0,8;
 }
 input {
-		background-color: #198276;
+		background-color: #1f3b6d91;
 		font-color: #7dab97;
 		height: 36px;
 		width: 85px;
@@ -139,26 +139,25 @@ input {
 
 <div class="navbar">
   <font face="arial"><a href="https://afinscorp.github.io/">Beranda</a></font>
-  <p id="time" style="margin-left:70%;font-size:18px;font-weight:bolder;color:#a1aff7;text-shadow:  1px 2px 25px;text-align:center">404</p>
+  
   <div class="dropdown"
 						form action="option">
 							<font size="5" font color="white" font face="arial"><label for="lang" ></label></font>
 								<select name="languages" id="target-url" >
-									<<optgroup label="Mesin pencarian">
+									<optgroup label="Mesin pencarian">
 									<option value="http://google.com/">Google</option>
 									<option value="https://www.bing.com/">Bing</option>
-									<option value="https://www.bing.com/search?form=NTPCHB&q=Bing+AI&showconv=1">ChatBing for (edge)</option>
+									<option value="https://www.bing.com/search?form=NTPCHB&q=Bing+AI&showconv=1">ChatBing</option>
+								</optgroup>
+								<optgroup label="Aplikasi google">
+									<option value="javascript">google DOC</option>
+									<option value="javascript">Google PPT</option>
 								</optgroup>
 								<optgroup label="Akses cepat">
 									<option value="https://youtube.com/">youtube</option>
-									<option value="https://www.y2mate.com/id748/youtube-mp3">y2mate</option>
-									<option value="">Whatsapp</option>
-									<option value="https://www.facebook.com/">Facebook</option>
-									<option value="https://www.instagram.com/">Instagram</option>
-									<option value="https://www.tiktok.com/">Tik tok</option>
-								</optgroup>
-								<optgroup label="situs Game">
+									<option value="https://tv3.lk21official.pro/">LK21</option>
 									<option value="https://itch.io/games">itch games</option>
+									<option value="https://www.y2mate.com/id748/youtube-mp3">y2mate</option>
 								</select>
 							<input type="submit" onclick="goto()" value="Mulai"/>
 					</form>
@@ -172,8 +171,9 @@ input {
 		</br>
 	</br>
 				<center>
-					<a href="game.html"><img src="db_icon/game icon.png"></a>
-					<a href="Home.html"><img src="db_icon/help.png"></a>
+					<a href="#"><img src="db_icon/file.png"></a>
+					<a href="#"><img src="db_icon/Video-Game-Controller-Icon-IDV-green.svg.png"></a>
+					<a href="#"><img src="db_icon/"></a>
 				</center>
 			
 			
@@ -181,29 +181,6 @@ input {
 			<center><font face="Arial"><h3>AFINS.Inc 2023</font></h3></center>
 		</footer>
 </div>
-
-<script>
-var gt= document.getElementById("time");
-
-setInterval(function(){
-
-gt.innerText=new Date().toLocaleTimeString();
-
-if(gt.style.color=="green"){
-
-gt.style.color="blue"
-}
-
-else if(gt.style.color=="#9ce7ff"){
-gt.style.color="red";
-}
-
-else if(gt.style.color=="red"){
-gt.style.color="green";
-}
-
-},122)
-</script>
 
 </body>
 </html>
