@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Beranda</title>
+    <title>INS GO Launcher</title>
 		<link rel="icon" href="db_icon/Icon INS.png"></link>
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
@@ -13,7 +13,7 @@ window.location=i.value;
 <style>
 body {
 	margin:0;
-	background-image: url('db_background/City.jpg');
+	background-image: url('db_background/Dark.png');
 	height : 100%;
 	width: 100%;
 	background-repeat: no-repeat
@@ -29,7 +29,7 @@ body {
 
 .navbar {
   overflow: hidden;
-  background-color: #2061af59;
+  background-color: #2061af00;
   position: fixed;
   top: 0;
   height:50px;
@@ -47,14 +47,14 @@ body {
   text-decoration: none;
   font-size: 17px;
   border-radius:10px;
-  padding:20px 20px;
+  padding:10px 20px;
   cursor: pointer;
   margin-top:-4px;
+  transition: 1s;
 }
 
 .navbar a:hover {
-  background: #1e75d157;
-  color: white;
+  background: #0f3b4d;
   transition: background-color 1.0s;
 }
 
@@ -69,13 +69,15 @@ h1 {
 h2 {
 	color: white;
 }
+h7 {
+	color: #ffffff30;
+}
 p {
 	color: white;
 }
 img {
 	width: 80px;
 	margin: 5px;
-	border-radius:100%;
 }
 footer {
             background-color:none;
@@ -96,13 +98,16 @@ label {
 			justify-content: center;
 			margin:0 auto;
 }
+
+/*select menu option*/
 select {
 			margin-bottom: 10px;
 			margin-top: 10px;
 			font-family: cursive, sans-serif;
 			outline: 0;
-			background: #153cad;
-			border: 20px solid crismson;
+			background: #1a7193;
+			color : #0bdcf3;
+			border: none;
 			padding: 4px;
 			border-radius: 100px;
 			opacity: 0.8;
@@ -111,7 +116,15 @@ select {
 			cursor: pointer;
 			float: left;
 			width: 78%;
+			transition: 1s;
 }
+select:hover{
+			background-color: #053d53;
+			color: #0bdcf3;
+			transition: 1s;
+}
+/*end*/
+
 .dropdown, {
 			color: white;
 			font-color: white;
@@ -119,7 +132,7 @@ select {
 			opacity: 0,8;
 }
 input {
-		background-color: #1f3b6d91;
+		background-color: #1c576f;
 		font-color: #7dab97;
 		height: 50px;
 		width: 20%;
@@ -131,30 +144,37 @@ input {
 		float: right;
 		margin-top: 10px;
 		margin-bottom: 10px;
+		transition: 1s;
+}
+input:hover{
+		background-color: #258db3;
+		transition: 1s;
 }
 </style>
 </head>
 <body>
 
 <div class="navbar">
-  <font face="arial"><a href="Menu.html">menu</a></font>
-  <p id="time" style="margin-left:70%;font-size:18px;font-weight:bolder;color:#a1aff7;text-shadow:  1px 2px 25px;text-align:center">404</p>
+ <!--link menu-->
+  <font face="arial"><a href="Menu.html"><Img src="db_icon/button.png" style="width: 30px"></a></font>
+  
+  <p id="time" style="margin-left:70%; font-size:18px; font-weight:bolder; color:#35e3ff; font-family: sans-serif ;text-align:center;">404</p>
 </div>
 
 <div class="main">
 
 			<center>
-				<Img src="db_icon/Icon INS.png" style="width: 80px">
+				<Img src="db_icon/Icon INS.png" style="width: 80px; border-radius">
 					<div class="dropdown"
 						form action="option">
 							<font size="5" font color="white" font face="arial"><label for="lang" ></label></font>
 								<select name="languages" id="target-url" >
-									<optgroup label="Mesin pencarian">
+									<optgroup label="--------Mesin pencarian--------"></optgroup>
 									<option value="http://google.com/">Google</option>
 									<option value="https://www.bing.com/">Bing</option>
 									<option value="https://www.bing.com/search?form=NTPCHB&q=Bing+AI&showconv=1">ChatBing for (edge)</option>
 								</optgroup>
-								<optgroup label="Akses cepat">
+								<optgroup label="-----------Akses cepat--------"></optgroup>
 									<option value="https://youtube.com/">youtube</option>
 									<option value="https://www.y2mate.com/id748/youtube-mp3">y2mate</option>
 									<option value="https://web.whatsapp.com/">Whatsapp</option>
@@ -162,11 +182,11 @@ input {
 									<option value="https://www.instagram.com/">Instagram</option>
 									<option value="https://www.tiktok.com/">Tik tok</option>
 								</optgroup>
-								<optgroup label="Situs fungsi">
+								<optgroup label=">--------Situs fungsi--------"></optgroup>
 									<option value="https://itch.io/games">itch games</option>
 									<option value="https://www.canva.com/">Canva</option>
-          <option value="https://translate.google.com/">translate</option>
- <option value="https://learn.microsoft.com/id-id/aspnet/web-pages/overview/getting-started/11-adding-email-to-your-web-site">learn microsoft</option>
+									<option value="https://translate.google.com/">translate</option>
+									<option value="https://learn.microsoft.com/id-id/aspnet/web-pages/overview/getting-started/11-adding-email-to-your-web-site">learn microsoft</option>
 								</select>
 							<input type="submit" onclick="goto()" value="Mulai"/>
 					</form>
@@ -174,7 +194,7 @@ input {
 			</br>
 		</center>	
 		<footer>
-			<center><font face="Arial"><h3>AFINS.Inc 2023</font></h3></center>
+			<center><font face="Arial"><h7>AFINS.Inc 2024</br>version 1.1.0</font></h7></center>
 		</footer>
 </div>
 
