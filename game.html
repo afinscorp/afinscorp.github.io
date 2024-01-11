@@ -13,7 +13,7 @@ window.location=i.value;
 <style>
 body {
 	margin:0;
-	background-image: url('db_background/City.jpg');
+	background-image: url('db_background/Dark.png');
 	height : 100%;
 	width: 100%;
 	background-repeat: no-repeat
@@ -29,12 +29,10 @@ body {
 
 .navbar {
   overflow: hidden;
-  background-color: #2061af59;
+  background-color: #2061af00;
   position: fixed;
   top: 0;
   width: 100%;
-  font-face: Arial;
-  opacity: 0.8;
 }
 
 .navbar a {
@@ -95,21 +93,29 @@ label {
 			margin:0 auto;
 }
 select {
-			margin-bottom: -6px;
-			margin-top: 12px;
+			margin-bottom: 10px;
+			margin-top: 10px;
 			font-family: cursive, sans-serif;
 			outline: 0;
-			background:#153cad;
-			border: 20px solid crismson;
+			background: #1a7193;
+			color : #0bdcf3;
+			border: none;
 			padding: 4px;
 			border-radius: 100px;
 			opacity: 0.8;
-			height: 38px;
-			width: 100%;
+			height: 50px;
 			cursor: pointer;
 			float: left;
-			width: 41%
+			width: 90%;
+			padding-left: 21px;
+			transition: 1s;
 }
+select:hover{
+			background-color: #053d53;
+			color: #0bdcf3;
+			transition: 1s;
+}
+
 .dropdown, {
 			color: white;
 			font-color: white;
@@ -117,28 +123,47 @@ select {
 			opacity: 0,8;
 }
 input {
-		background-color: #1f3b6d91;
+		background-color: #104155;
 		font-color: #7dab97;
-		height: 36px;
-		width: 85px;
-		border-radius: 69px;
+		height: 50px;
+		width: 87px;
+		border-radius: 50px;
 		border: none;
 		color: #35e3ff;
 		cursor: pointer;
 		font-size: 15px;
-		float: flex;
-		margin-top: 13px;
-		margin-bottom: 11px;
-		margin-right: 24px;
-		margin-left: -86px;
-		position: relative;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		transition: 1s;
+		margin-left: -58px;
+		position: absolute;
 }
+input:hover{
+		background-color: #258db3;
+		transition: 1s;
+}
+@media screen and (max-width: 890px){
+
+	select{
+		width: 70%;
+
+	}
+}
+	
+@media screen and (max-width: 320x){
+
+select{
+	width: 20%;
+
+}
+}
+
 </style>
 </head>
 <body>
 
 <div class="navbar">
-  <font face="arial"><a href="https://afinscorp.github.io/">Beranda</a></font>
+  <font face="arial"><a href="https://afinscorp.github.io/"><img src="db_icon/Back.png" style="width: 20px; height: 20px;"></a></font>
   
   <div class="dropdown"
 						form action="option">
@@ -162,8 +187,9 @@ input {
 							<input type="submit" onclick="goto()" value="Mulai"/>
 					</form>
 				</div>
-</div>
+			</div>
 
+	<!--content_internal-->>
 <div class="main">
 	</br>
 		</br>
@@ -178,7 +204,7 @@ input {
 			
 			
 		<footer>
-			<center><font face="Arial"><h3>AFINS.Inc 2023</font></h3></center>
+			<center><font face="Arial"><h3>AFINS.Inc 2024</font></h3></center>
 		</footer>
 </div>
 

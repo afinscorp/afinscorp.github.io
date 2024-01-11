@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Game</title>
+    <title>Menu</title>
 		<link rel="icon" href="db_icon/Icon INS.png"></link>
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
@@ -107,10 +107,10 @@ select {
 			border-radius: 100px;
 			opacity: 0.8;
 			height: 50px;
-			width: 100%;
 			cursor: pointer;
 			float: left;
-			width: 78%;
+			width: 90%;
+			padding-left: 21px;
 			transition: 1s;
 }
 select:hover{
@@ -127,49 +127,64 @@ select:hover{
 			opacity: 0,8;
 }
 input {
-		background-color: #1c576f;
+		background-color: #104155;
 		font-color: #7dab97;
 		height: 50px;
-		width: 20%;
+		width: 87px;
 		border-radius: 50px;
 		border: none;
 		color: #35e3ff;
 		cursor: pointer;
 		font-size: 15px;
-		float: right;
 		margin-top: 10px;
 		margin-bottom: 10px;
 		transition: 1s;
+		margin-left: -58px;
+		position: absolute;
 }
 input:hover{
 		background-color: #258db3;
 		transition: 1s;
 }
+
+@media screen and (max-width: 890px){
+
+select{
+	width: 70%;
+
+}
+}
+
+@media screen and (max-width: 320x){
+
+select{
+width: 20%;
+
+}
+}
+
 </style>
 </head>
 <body>
 
+	<!--Navigasi_Menu-->>
+
 <div class="navbar">
-  <font face="arial"><a href="https://afinscorp.github.io/">Beranda</a></font>
-  
+  <font face="arial"><a href="https://afinscorp.github.io/"><img src="db_icon/Back.png" style="width: 20px; height: 20px;"></a></font>
+  <!--Select_Menu-->>
   <div class="dropdown"
 						form action="option">
 							<font size="5" font color="white" font face="arial"><label for="lang" ></label></font>
 								<select name="languages" id="target-url" >
-									<optgroup label="Mesin pencarian">
+									<optgroup label="Mesin pencarian"></optgroup>
 									<option value="http://google.com/">Google</option>
 									<option value="https://www.bing.com/">Bing</option>
 									<option value="https://www.bing.com/search?form=NTPCHB&q=Bing+AI&showconv=1">ChatBing</option>
 								</optgroup>
-								<optgroup label="Aplikasi google">
-									<option value="javascript">google DOC</option>
-									<option value="javascript">Google PPT</option>
+								<optgroup label="Semua menu"></optgroup>
+									<option value="#">game</option>
+									<option value="#">Apps</option>
 								</optgroup>
-								<optgroup label="Akses cepat">
-									<option value="https://youtube.com/">youtube</option>
-									<option value="https://tv3.lk21official.pro/">LK21</option>
-									<option value="https://itch.io/games">itch games</option>
-									<option value="https://www.y2mate.com/id748/youtube-mp3">y2mate</option>
 								</select>
 							<input type="submit" onclick="goto()" value="Mulai"/>
 					</form>
@@ -177,21 +192,7 @@ input:hover{
 </div>
 
 <div class="main">
-	</br>
-		</br>
-			</br>
-		</br>
-	</br>
-				<center>
-					<a href="#"><img src="db_icon/file.png"></a>
-					<a href="game.html"><img src="db_icon/Video-Game-Controller-Icon-IDV-green.svg.png"></a>
-					<a href="#"><img src="db_icon/"></a>
-				</center>
 			
-			
-		<footer>
-			<center><font face="Arial"><h3>AFINS.Inc 2023</font></h3></center>
-		</footer>
 </div>
 
 </body>
