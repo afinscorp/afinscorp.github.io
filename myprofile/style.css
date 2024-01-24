@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'poppins',sans-serif;
+	user-select: none;
+	/*pointer-events: none;*/
 }
 
 .hero{
