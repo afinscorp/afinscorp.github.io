@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About me</title>
+    <link rel="stylesheet" href="Tab_style.css">
+</head>
+<body>
+    <div class="hero">
+        
+        <video autoplay loop muted plays-inline class="back-video"
+                    source src="background/Gradien.mp4" type="video/mp4" style="background-color:gray;">
+                </video>
+        <span class="overlayGradient "></span>
+		
+        <nav>
+            <img src="db_icon/Icon INS.png" class="logo">
+			<h5>Developer</h5>
+            <ul>
+                <li><a href="Feedback.html">Feed back</a></li>
+                <li><a href="https://colab.research.google.com/?hl=id">my project</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <center><img src="db_icon/profile.jpeg" style="border-radius: 100%; width:25% ; text-align: center;"></center>
+            <center><h1>Welcome AF!!!</h1></center>
+		
+		<section>
+            <div class="searchBox">
+				<input type="text" name="" class="query" value style="width: 98%; height: 100%;  background-color: #467f7fa8; border-radius: 50px; border: none; color: aqua; font-size: 38px; padding-left: 29px; padding-right: 94px; border: 2px solid #4a8fa3;">
+			</div>
+			
+			<div class="button">
+				<button class="searchBtn">Google search</button>
+			</div>
+		</section>
+		</br>
+			</br>
+			<center><p>AF Developer 2024</p></center>
+        </div>
+    </div>
+</body>
+
+<script>
+let query = document.querySelector(".query");
+	let searchBtn = document.querySelector(".searchBtn");
+	
+	searchBtn.onclick = function(){
+		let url = "https://www.google.com/search?q="+query.value;
+		window.open(url,'_self');
+	}
+</script>
+</html>
