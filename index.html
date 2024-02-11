@@ -1,226 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>INS GO Launcher</title>
-		<link rel="icon" href="db_icon/Icon INS.png"></link>
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-<script>
-function goto(){
-let i=document.getElementById('target-url');
-window.location=i.value;
-}
-</script>
-<style>
-body {
-	margin:0;
-	background-image: url('db_background/pxfuel.jpg');
-	height : 100%;
-	width: 100%;
-	background-repeat: no-repeat
-	background-position: top;
-	background-attachment: fixed;
-	background-size: cover;
-	display : flex;
-	align-items: center;
-	justify-content:center;
-	margin: 0 auto;
-	height: 100vh;
-}
-
-.navbar {
-  overflow: hidden;
-  background-color: #753774;
-  position: fixed;
-  top: 0;
-  height:50px;
-  width: 100%;
-  font-face: Arial;
-  opacity: 0.8;
-}
-
-.navbar a {
-  float: left;
-  display: inline-block;
-  color: #8a9bf5;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  border-radius:10px;
-  padding:10px 20px;
-  cursor: pointer;
-  margin-top:-4px;
-  transition: 1s;
-}
-
-.navbar a:hover {
-  background: #0f3b4d;
-  transition: background-color 1.0s;
-}
-
-.main {
-  padding: 16px;
-  margin-top: 30px;
-  height: none ;
-}
-h1 {
-	color : white;
-}
-h2 {
-	color: white;
-}
-h7 {
-	color: #ffffffab;
-}
-p {
-	color: white;
-}
-img {
-	width: 80px;
-	margin: 5px;
-}
-footer {
-            background-color:none;
-            color: white;
-            padding: 100px;
-            margin:0;
-			position
-}
-input {
-			display: right;
-			align-items:center;
-			justify-content:center;
-			margin:0 auto;
-}
-label {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin:0 auto;
-}
-
-/*select menu option*/
-select {
-			margin-bottom: 10px;
-			margin-top: 10px;
-			font-family: cursive, sans-serif;
-			outline: 0;
-			background: #1a7193;
-			color : #0bdcf3;
-			border: none;
-			padding: 4px;
-			border-radius: 100px;
-			opacity: 0.8;
-			height: 50px;
-			width: 100%;
-			cursor: pointer;
-			float: left;
-			width: 78%;
-			transition: 1s;
-}
-select:hover{
-			background-color: #053d53;
-			color: #0bdcf3;
-			transition: 1s;
-}
-/*end*/
-
-.dropdown, {
-			color: white;
-			font-color: white;
-			height: 50px;
-			opacity: 0,8;
-}
-input {
-		background-color: #1c576f;
-		font-color: #7dab97;
-		height: 50px;
-		width: 20%;
-		border-radius: 50px;
-		border: none;
-		color: #35e3ff;
-		cursor: pointer;
-		font-size: 15px;
-		float: right;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		transition: 1s;
-}
-input:hover{
-		background-color: #258db3;
-		transition: 1s;
-}
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Tab</title>
+	<link rel="icon" href="db_icon/Icon INS.png"></link>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Tab_style.css">
 </head>
 <body>
-
-<div class="navbar">
- <!--link menu-->
-  <font face="arial"><a href="Menu.html"><Img src="db_icon/button.png" style="width: 30px"></a></font>
-  
-  <p id="time" style="margin-left:70%; font-size:18px; font-weight:bolder; color:#35e3ff; font-family: sans-serif ;text-align:center;">404</p>
-</div>
-
-<div class="main">
-
-			<center>
-				<Img src="db_icon/Icon INS.png" style="width: 80px; border-radius">
-					<div class="dropdown"
-						form action="option">
-							<font size="5" font color="white" font face="arial"><label for="lang" ></label></font>
-								<select name="languages" id="target-url" >
-									<optgroup label="--------Mesin pencarian--------"></optgroup>
-									<option value="http://google.com/">Google</option>
-									<option value="https://www.bing.com/">Bing</option>
-									<option value="https://www.bing.com/search?form=NTPCHB&q=Bing+AI&showconv=1">ChatBing for (edge)</option>
-								</optgroup>
-								<optgroup label="-----------Akses cepat--------"></optgroup>
-									<option value="https://youtube.com/">youtube</option>
-									<option value="https://www.y2mate.com/id748/youtube-mp3">y2mate</option>
-									<option value="https://web.whatsapp.com/">Whatsapp</option>
-									<option value="https://www.facebook.com/">Facebook</option>
-									<option value="https://www.instagram.com/">Instagram</option>
-									<option value="https://www.tiktok.com/">Tik tok</option>
-								</optgroup>
-								<optgroup label=">--------Situs fungsi--------"></optgroup>
-									<option value="https://itch.io/games">itch games</option>
-									<option value="https://www.canva.com/">Canva</option>
-									<option value="https://translate.google.com/">translate</option>
-									<option value="https://learn.microsoft.com/id-id/aspnet/web-pages/overview/getting-started/11-adding-email-to-your-web-site">learn microsoft</option>
-									<option value="myprofile/index.html">About me</option>
-								</select>
-							<input type="submit" onclick="goto()" value="Mulai"/>
-					</form>
-				</div>
+    <div class="hero">
+        
+        <video autoplay loop muted plays-inline class="back-video"
+                    source src="background/VENICE _ Cinematic FPV.mp4" type="video/mp4" style="background-color:gray;">
+                </video>
+        <span class="overlayGradient "></span>
+		
+        <nav>
+            <img src="db_icon/Icon INS.png" class="logo">
+			<h5>Developer</h5>
+            <ul>
+                <li><a href="#popup">Menu</a></li>
+                <li><a href="#" onclick="alert('Tentang INS Launcher\n============================\nVersion V.2.0.1 Alpha Limited\nAF Developer 2024-2025\nFollow My IG af_developer_')">About</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <center><img src="db_icon/profile.jpeg" style="border-radius: 100%; width:30% ; text-align: center;"></center>
+        </br>
+		
+		<section>
+            <div class="searchBox">
+				<input type="text" name="" placeholder="Ayo Explore sekarang!" class="query" value=""> <!--mengunakan outline untuk menghilangkan border text bar-->
+			</div>
+			
+			<div class="button">
+				<button class="searchBtn">Go Search</button>
+			</div>
+		</section>
+		</br>
 			</br>
-		</center>	
-		<footer>
-			<center><font face="Arial"><h7>AFINS.Inc 2024</br>version 1.1.0</font></h7></center>
-		</footer>
-</div>
+			<center><p>AF Developer 2024</br>
+			Pencarian di dukung Google.Inc</p></center>
+        </div>
+    </div>
+
+    <div id="popup">
+        <div class="notif-popup">
+ <!--bagian close button -> --><a href="#" class="close" style="margin-left: 95%;"><img src="db_icon/cancel.png" style="width: 20px;"></a>
+        <p style="text-align: center;">Menu</p>
+
+<iframe src="DB.html" width="50%" style="border: none; margin-top: 5px; position: relative; border-radius: 15px; width:100%; padding-bottom: 26px; height:inherit;"></iframe>
+    </div>
+</body>
 
 <script>
-var gt= document.getElementById("time");
-
-setInterval(function(){
-
-gt.innerText=new Date().toLocaleTimeString();
-
-if(gt.style.color=="green"){
-
-gt.style.color="blue"
-}
-
-else if(gt.style.color=="#9ce7ff"){
-gt.style.color="red";
-}
-
-else if(gt.style.color=="red"){
-gt.style.color="green";
-}
-
-},122)
+let query = document.querySelector(".query");
+	let searchBtn = document.querySelector(".searchBtn");
+	
+	searchBtn.onclick = function(){
+		let url = "https://www.google.com/search?q="+query.value;
+		window.open(url,'_self');
+	}
 </script>
-
-</body>
 </html>
