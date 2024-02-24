@@ -70,11 +70,11 @@ nav ul li a:hover {
 
 .content a{
     text-decoration: none;
-    /*display: inline-block;*/
+    display: inline-block;
     color:#fff;
     font-size: 24px;
     border: 2px solid #fff;
-    padding: 8px 33px;
+    padding: 15px 20px;
     border-radius: 50px;
     margin-top: 20px;
     transition: 1s;
@@ -85,7 +85,7 @@ nav ul li a:hover {
     color:Linear-gradient(180deg , #198375, #abe3e3, #2dc3c394);
     font-size: 24px;
     border: 2px solid #198375;
-    padding: 14px 70px;
+    padding: 25px 30px;
     border-radius: 50px;
     margin-top: 20px;
     transition: 1s;
@@ -155,18 +155,17 @@ input {
 }
 
 .searchBtn {
-	width: 100px;
+	width: 50px;
 	height: 47px;
-	background-color: #3e494d;
+	background-color: #18475300;
 	border-radius: 50px;
 	border: none;
-	color: aqua;
-	margin-left: -89px;
+	color: white;
+	margin-left: -60px;
     transition: 1s;
 }
 .searchBtn:hover {
-    background-color: #184753;
-    color: aquamarine;
+    color: aqua;
     transition: 1s;
 }
 
@@ -175,13 +174,13 @@ input {
     height: 100%;
     position: fixed;
     padding:20px 0 0 0 ;
-    background: #00000080;
+    background: #00000000;
     top: 0;
     left: 0;
     z-index: 9999;
     visibility:hidden;
 	transition: background-color 1.0s; 
-	backdrop-filter: blur(6px);
+	/*backdrop-filter: blur(6px);*/
 }
 #popup:target{
     visibility:visible;
@@ -189,17 +188,18 @@ input {
 .notif-popup{
     width: 350px;
 	height: -webkit-fill-available;
-    background:#252c31;
+    background:#6597bb52;
     border-radius: 10px;
     position: relative;
     padding: 18px;
     box-shadow: 0 0px 10px rgba(0,0,0,.4);
     margin: auto auto; 	
-	<!--transition:  2.0s;-->	
+    backdrop-filter: blur(10px);
+	/*transition:  2.0s;*/
 }
 
-/*for size dekstop original*/
-@media screen and (max-width: 1031px) {
+
+@media screen and (max-width: 1031px) { /*size for PC*/
 	
 nav ul li a {
 	text-decoration: none;
@@ -230,7 +230,7 @@ nav ul li{
 	} 
 }
 
-@media screen and (max-width: 776px) {
+@media screen and (max-width: 776px) { /*size for laptop*/
 	
 nav ul li a {
 	text-decoration: none;
@@ -271,58 +271,32 @@ nav ul li{
     transition: 1s;
 	}
 }
+    
+    @media screen and (max-width: 462px) {
 
-@media screen and (max-width: 462) {
-	
-nav ul li a {
-	text-decoration: none;
-	color: #fff;
-	font-size: 14px;
+     video{
+        display: none;
 }
-	
-nav ul li{
-    list-style: :none;
-    display: inline-block;
-    margin-left: 15px;
-}
-.content h1{
-    font-size: 30px;
-    color: #fff;
-    font-weight: 600;
-}
-.content a{
-    text-decoration: none;
-    display: inline-block;
-    color:#fff;
-    font-size: 24px;
-    border: 2px solid #fff;
-    padding: 8px 40px;
-    border-radius: 50px;
-    margin-top: 20px;
-    transition: 1s;
-}
-.content a:hover{
-    text-decoration: none;
-    display: inline-block;
-    color:Linear-gradient(180deg , #198375, #abe3e3, #2dc3c394);
-    font-size: 24px;
-    border: 2px solid #198375;
-    padding: 8px 45px;
-    border-radius: 50px;
-    margin-top: 20px;
-    transition: 1s;
-	}
-input {
-    width: 98%;
-    height: 100%;
-    background-color: #467f7fa8;
-    border-radius: 50px;
-    border: none;
-    color: aqua;
-    font-size: 38px;
-    padding-left: 29px;
-    padding-right: 94px;
-    border: 2px solid #4a8fa3;
-    outline:none;
-}
-}
+        
+    .content a{
+        text-decoration: none;
+        display: inline-block;
+        color:#fff;
+        font-size: 24px;
+        border: 2px solid yellow;
+        padding: 15px 18px;
+        border-radius: 50px;
+        margin-top: 20px;
+        transition: 1s;
+    }
+    .content a:hover{
+        text-decoration: none;
+        display: inline-block;
+        color:Linear-gradient(180deg , #198375, #abe3e3, #2dc3c394);
+        font-size: 24px;
+        border: 2px solid #198375;
+        padding: 15px 18px;
+        margin-top: 20px;
+        transition: 1s;
+        }
+    }
