@@ -139,17 +139,17 @@ section{
 }
 /*bagian search bar for size : Dekstop*/
 input {
-    width: 98%;
+    width: 100%;
     height: 100%;
     background-color: #232b2ad9;
     border-radius: 50px;
     border: none;
     color: aqua;
     font-size: 20px;
-    padding-left: 29px;
-    padding-right: 94px;
+    padding-left: 23px;
+    padding-right: 57px;
     border: 2px solid #3e494d;
-    outline:none;
+    outline: none;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -279,7 +279,7 @@ nav ul li{
 }
     .hero{
     margin:0;
-	background-image: url('background/world.jpeg');
+    background-image: url('background/background.png');
 	height : 100%;
 	width: 100%;
 	background-repeat: no-repeat
