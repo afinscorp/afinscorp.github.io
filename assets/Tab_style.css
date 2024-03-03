@@ -227,10 +227,11 @@ nav ul li{
     font-size: 50px;
     color: #fff;
     font-weight: 600;
-	} 
+    } 
+    
 }
 
-@media screen and (max-width: 776px) { /*size for laptop*/
+@media screen and (max-width: 768px) { /*size for laptop*/
 	
 nav ul li a {
 	text-decoration: none;
@@ -258,7 +259,10 @@ nav ul li{
     border-radius: 50px;
     margin-top: 20px;
     transition: 1s;
-}
+    }
+input {
+    width: 500px;
+    }  
 .content a:hover{
     text-decoration: none;
     display: inline-block;
@@ -272,14 +276,14 @@ nav ul li{
 	}
 }
     
-    @media screen and (max-width: 462px) {
+@media screen and (max-width: 527px) {
 
      video{
         display: none;
 }
     .hero{
     margin:0;
-    background-image: url('background/background.png');
+    background-image: url('https://github.com/afinscorp/afinscorp.github.io/blob/main/assets/background/background.png?raw=true');
 	height : 100%;
 	width: 100%;
 	background-repeat: no-repeat
@@ -313,10 +317,13 @@ nav ul li{
         padding: 15px 18px;
         margin-top: 20px;
         transition: 1s;
+    }
+    input{
+        width: 400px;
         }
     }
 
-    @media screen and (max-width: 335px) {
+ @media screen and (max-width: 410px) {
 
         popup{
             width: 100%;
@@ -345,5 +352,8 @@ nav ul li{
             margin: auto auto; 	
             backdrop-filter: blur(10px);
             /*transition:  2.0s;*/
+        }
+        input{
+            width: 100%;
         }
     }
