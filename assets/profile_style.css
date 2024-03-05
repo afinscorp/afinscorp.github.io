@@ -1,0 +1,91 @@
+//=============================
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ 
+html, body, section
+{
+    position: relative;
+    height: 100%;
+}
+ 
+html
+{
+    scroll-behavior: smooth;
+}
+ 
+nav ul
+{
+    list-style-type: none;
+    background-color: chocolate;
+    overflow: hidden;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+ 
+nav li
+{
+    float: left;
+    margin-left: 20px;
+}
+ 
+nav ul li a
+{
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+ 
+nav ul li a:hover
+{
+    background-color:black;
+    transition-duration: 2s;
+}
+ 
+section
+{
+    padding: 80px;
+}
+ 
+h2
+{
+    margin-bottom: 20px;
+}
+ 
+#menu1
+{
+    background-color: black;
+    color: white;
+}
+ 
+#menu2
+{
+    background-color: white;
+    color: black;
+}
+ 
+#menu3
+{
+    background-color: crimson;
+    color: white;
+}
+
+.hero{
+    width:  100%;
+    height: 100vh;
+    background-image: gray;
+    position: relative;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+//=============================
