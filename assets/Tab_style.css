@@ -283,7 +283,7 @@ input {
 }
     .hero{
     margin:0;
-    background-image: url('https://github.com/afinscorp/afinscorp.github.io/blob/main/assets/background/background.png?raw=true');
+    background-image: src('assets/background/Sine.jpg');
 	height : 100%;
 	width: 100%;
 	background-repeat: no-repeat
