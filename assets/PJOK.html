@@ -49,6 +49,7 @@ h1, h2, p {
 
 <div class="navbar">
    <a href="">Rangkuman PJOK</a>
+   <p id="time" style="font-size:20px;font-weight:bolder;color:#82ff87;text-align:right; margin-right:20px ">Time</p>
 </div>
 
 <div class="main">
@@ -107,4 +108,27 @@ h1, h2, p {
 </div>
 
 </body>
+
+<script>
+    var gt= document.getElementById("time");
+
+setInterval(function(){
+
+gt.innerText=new Date().toLocaleTimeString();
+
+if(gt.style.color=="green"){
+
+gt.style.color="blue"
+}
+
+else if(gt.style.color=="#9ce7ff"){
+gt.style.color="red";
+}
+
+else if(gt.style.color=="red"){
+gt.style.color="green";
+}
+
+},122)
+</script>
 </html>
