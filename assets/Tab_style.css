@@ -291,14 +291,12 @@ input {
     
 @media screen and (max-width: 527px) {
 
-<<<<<<< HEAD
-=======
      video{
         display: none;
 }
     .hero{
     margin:0;
-    background-image: src('assets/background/Sine.jpg');
+    background-image: url('https://raw.githubusercontent.com/afinscorp/afinscorp.github.io/main/assets/background/Sine.jpg');
 	height : 100%;
 	width: 100%;
 	background-repeat: no-repeat
@@ -312,7 +310,6 @@ input {
 	height: 100vh;
     }
 
->>>>>>> b518e3cbace9550c6af4c4efe7efb466d84cb2c3
     .content a{
         text-decoration: none;
         display: inline-block;
@@ -379,7 +376,7 @@ input {
         .notif-popup{
             width: -webkit-fill-available;
             height: -webkit-fill-available;
-            background:#6597bb52;
+            background:#00000052;
             border-radius: 10px;
             position: relative;
             padding: 18px;
