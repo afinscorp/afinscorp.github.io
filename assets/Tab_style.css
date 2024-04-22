@@ -130,6 +130,10 @@ img {
     /*transition: all 0.07s ease-out 0s;*/
 }
 
+iframe {
+	margin-top: 20px;
+}
+
 section{
 	position: relative;
 	width: 100%;
@@ -337,7 +341,8 @@ input {
 }
     .hero{
     margin:0;
-    background-image: url('https://raw.githubusercontent.com/afinscorp/afinscorp.github.io/main/assets/background/Sine.jpg');
+    /*background-image: url('https://raw.githubusercontent.com/afinscorp/afinscorp.github.io/main/assets/background/Sine.jpg');*/
+	background-color: #2a5c5c;
 	height : 100%;
 	width: 100%;
 	background-repeat: no-repeat
@@ -384,8 +389,8 @@ input {
     }
     .hero{
     margin:0;
-    background-image: url('https://raw.githubusercontent.com/afinscorp/afinscorp.github.io/main/assets/background/Sine.jpg');
-    background-color: #2d182e;
+    /*background-image: url('https://raw.githubusercontent.com/afinscorp/afinscorp.github.io/main/assets/background/Sine.jpg');*/
+    background-color: #2a5c5c;
 	height : 100%;
 	width: 100%;
 	background-repeat: no-repeat
