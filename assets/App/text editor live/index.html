@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="device-width, initial-scale=1.0">
+	<title>Code editor</title>
+	<link rel="icon" href="pngwing.com.png"></link>
+	<link rel="stylesheet" href="style.css">
+	<!--icon-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="left">
+			<label><i class="fa fa-code" style="font-size:20px"></i> HTML code</label>
+			<textarea id="html-code" onkeyup="run()"></textarea>
+			
+			<label><i class="fa fa-code" style="font-size:20px"></i> CSS code</label>
+			<textarea id="css-code" onkeyup="run()"></textarea>
+			
+			<label><i class="fa fa-code" style="font-size:20px"></i> JS code</label>
+			<textarea id="js-code" onkeyup="run()"></textarea>
+		</div>
+		
+		<div class="right">
+			<label><i class="fa fa-window-maximize" style="font-size:20px"></i> your Program</label>
+			<iframe id="output"></iframe>
+		</div>
+	</div>
+
+<script>
+
+	function run(){
+		let htmlCode = document.getElementById("html-code").value;
+		let cssCode = document.getElementById("css-code").value;
+		let jsCode = document.getElementById("js-code").value;
+		let outputCode = document.getElementById("output");
+		
+		output.contentDocument.body.innerHTML = htmlCode+"<style>"+cssCode +"</style>";
+		output.contentWindow.eval(jsCode);
+	}
+
+</script
+
+
+</body>
+</html>
