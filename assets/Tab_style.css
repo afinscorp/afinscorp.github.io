@@ -341,7 +341,7 @@ input {
 }
     .hero{
     margin:0;
-    /*background-image: url('https://raw.githubusercontent.com/afinscorp/afinscorp.github.io/main/assets/background/Sine.jpg');*/
+    background-image: url('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msKXW.img');
 	background-color: #2a5c5c;
 	height : 100%;
 	width: 100%;
@@ -355,6 +355,10 @@ input {
 	margin: 0 auto;
 	height: 100vh;
     }
+	.overlayGradient {
+    background-image:none;
+    transform: translateZ(0px);
+}
 
     .content a{
         text-decoration: none;
@@ -389,7 +393,7 @@ input {
     }
     .hero{
     margin:0;
-    /*background-image: url('https://raw.githubusercontent.com/afinscorp/afinscorp.github.io/main/assets/background/Sine.jpg');*/
+    background-image: url('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msKXW.img');
     background-color: #2a5c5c;
 	height : 100%;
 	width: 100%;
@@ -403,6 +407,10 @@ input {
 	margin: 0 auto;
 	height: 100vh;
     }
+	 .overlayGradient {
+    background-image:none;
+    transform: translateZ(0px);
+}
     #popup{
             width: 100%;
             height: 100%;
