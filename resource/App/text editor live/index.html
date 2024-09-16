@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="device-width, initial-scale=1.0">
+	<title>Live Code Editor</title>
+	<link rel="icon" href="pngwing.com.png"></link>
+	<link rel="stylesheet" href="style.css">
+	<!--icon-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+	<div class="navbar">
+		<a href="#popup"><i class="fa fa-bars"></i></a>
+		<a href="" onclick="alert('Fitur ini dalam tahap pengembangan')">Tools</a>
+		<a href="" onclick="alert('Versi Code Live\n1.0 Beta Build (101203123)\n')">About</a>
+		<p id="time" style="margin-left:70%;font-size:17px;font-weight:bolder;color:#13fbfd;margin-top: 9px;text-align:center">404</p>
+	</div>
+
+	<div class="container">
+		<div class="left">
+			<label><i class="fa fa-code" style="font-size:20px"></i> HTML code</label>
+			<textarea id="html-code" onkeyup="run()"></textarea>
+			
+			<label><i class="fa fa-code" style="font-size:20px"></i> CSS code</label>
+			<textarea id="css-code" onkeyup="run()"></textarea>
+			
+			<label><i class="fa fa-code" style="font-size:20px"></i> JS code</label>
+			<textarea id="js-code" onkeyup="run()"></textarea>
+		</div>
+		
+		<div class="right">
+			<label><i class="fa fa-window-maximize" style="font-size:20px"></i> your Program</label>
+			<iframe id="output"></iframe>
+		</div>
+	</div>
+	
+	<div id="popup">
+		<div class="notif-popup">
+			<a href="#" class="close" title="close" style="text-decoration: none"><img src="https://afinscorp.github.io/assets/db_icon/cancel.png" style="width: 20px"></a>
+			
+			<div class="scrollmenu">
+			<center>
+				<a href="" onclick="alert('Fitur ini dalam tahap pengembangan')">Start</a>
+				<a href="" onclick="alert('Fitur ini dalam tahap pengembangan')">About</a>
+			</center>
+		
+			
+		</div>
+	</div>
+
+<script>
+
+	function run(){
+		let htmlCode = document.getElementById("html-code").value;
+		let cssCode = document.getElementById("css-code").value;
+		let jsCode = document.getElementById("js-code").value;
+		let outputCode = document.getElementById("output");
+		
+		output.contentDocument.body.innerHTML = htmlCode+"<style>"+cssCode +"</style>";
+		output.contentWindow.eval(jsCode);
+	}
+
+</script>
+
+<script>
+  var gt= document.getElementById("time");
+  
+  setInterval(function(){
+  
+  gt.innerText=new Date().toLocaleTimeString();
+  
+  if(gt.style.color=="green"){
+  
+  gt.style.color="blue"
+  }
+  
+  else if(gt.style.color=="#9ce7ff"){
+  gt.style.color="red";
+  }
+  
+  else if(gt.style.color=="red"){
+  gt.style.color="green";
+  }
+  
+  },122)
+ </script>
+</body>
+</html>

@@ -12,14 +12,20 @@
 }
 
 .hero{
-    width:  100%;
-    height: 100vh;
-    background-image: gray;
-    position: relative;
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   margin:0;
+    background-image: url('https://cdn1.airdroid.com/V3562406191729/theme/stock/images/wallpaper/default.jpg');
+	background-color: #2a5c5c;
+	height : 100%;
+	width: 100%;
+	background-repeat: no-repeat
+	background-position: top;
+	background-attachment: fixed;
+	background-size: cover;
+	display : flex;
+	align-items: center;
+	justify-content:center;
+	margin: 0 auto;
+	height: 100vh;
 }
 
 nav{
@@ -90,7 +96,7 @@ nav ul li a:hover {
     margin-top: 20px;
     transition: 1s;
 }
-
+/*font*/
 p{
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 20px;
@@ -117,6 +123,44 @@ img {
 	z-index : -1;
 	background-color: black;
 }
+
+/*menu*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #000000ba;
+	backdrop-filter: blur(10px);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+
 .overlayGradient {
 	width: 100%;
     height: 100%;
@@ -127,8 +171,9 @@ img {
     backface-visibility: hidden;
     perspective: 1000px;
 	backdrop-filter: blur(1px);
-    /*transition: all 0.07s ease-out 0s;*/
+    transition: all 0.07s ease-out 0s;
 }
+
 
 iframe {
 	margin-top: 20px;
@@ -173,34 +218,6 @@ input {
     transition: 1s;
 }
 
-#popup{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    padding:20px 0 0 0 ;
-    background: #00000000;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    visibility:hidden;
-	transition: background-color 1.0s; 
-	/*backdrop-filter: blur(6px);*/
-}
-#popup:target{
-    visibility:visible;
-}
-.notif-popup{
-    width: 600px;
-	height: 100%;
-    background:#1f2727e6;
-    border-radius: 10px;
-    position: relative;
-    padding: 18px;
-    box-shadow: 0 0px 10px rgba(0,0,0,.4);
-    margin: auto auto; 	
-    backdrop-filter: blur(10px);
-	/*transition:  2.0s;*/
-}
 
 /* scroll settings*/
 
@@ -319,7 +336,7 @@ nav ul li{
     transition: 1s;
     }
 input {
-    width: 500px;
+    width: auto;
     }  
 .content a:hover{
     text-decoration: none;
@@ -334,33 +351,24 @@ input {
 	}
 }
     
-@media screen and (max-width: 527px) {
+@media screen and (max-width: 512px) {
 
-     video{
-        display: none;
+.sidenav{
+	background: #c9bcbc40;
+	color : black;
 }
-    .hero{
-    margin:0;
-    background-image: url('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msKXW.img');
-	background-color: #2a5c5c;
-	height : 100%;
-	width: 100%;
-	background-repeat: no-repeat
-	background-position: top;
-	background-attachment: fixed;
-	background-size: cover;
-	display : flex;
-	align-items: center;
-	justify-content:center;
-	margin: 0 auto;
-	height: 100vh;
-    }
-	.overlayGradient {
+
+.sidenav a {
+	color : black
+}
+
+.overlayGradient {
     background-image:none;
     transform: translateZ(0px);
+	backdrop-filter: blur(10px);
 }
 
-    .content a{
+.content a{
         text-decoration: none;
         display: inline-block;
         color:#fff;
@@ -371,7 +379,7 @@ input {
         margin-top: 20px;
         transition: 1s;
     }
-    .content a:hover{
+.content a:hover{
         text-decoration: none;
         display: inline-block;
         color:Linear-gradient(180deg , #198375, #abe3e3, #2dc3c394);
@@ -380,65 +388,14 @@ input {
         padding: 15px 18px;
         margin-top: 20px;
         transition: 1s;
+}
+
+input{
+    width: 100%;
     }
-    input{
-        width: 400px;
-        }
-    }
+}
 
  @media screen and (max-width: 425px) {
-
-    video{
-        display: none;
-    }
-    .hero{
-    margin:0;
-    background-image: url('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msKXW.img');
-    background-color: #2a5c5c;
-	height : 100%;
-	width: 100%;
-	background-repeat: no-repeat
-	background-position: top;
-	background-attachment: fixed;
-	background-size: cover;
-	display : flex;
-	align-items: center;
-	justify-content:center;
-	margin: 0 auto;
-	height: 100vh;
-    }
-	 .overlayGradient {
-    background-image:none;
-    transform: translateZ(0px);
-}
-    #popup{
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            padding:20px 0 0 0 ;
-            background: #00000000;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-            visibility:hidden;
-            transition: background-color 1.0s; 
-            backdrop-filter: blur(20px);
-        }
-        #popup:target{
-            visibility:visible;
-        }
-        .notif-popup{
-            width: -webkit-fill-available;
-            height: 95%;
-            background:#00000000;
-            border-radius: 10px;
-            position: relative;
-            padding: 18px;
-            box-shadow: none;
-            margin: auto auto; 	
-            /*backdrop-filter: blur(10px);*/
-            /*transition:  2.0s;*/
-        }
         input{
             width: 100%;
         }
