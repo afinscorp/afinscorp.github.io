@@ -56,7 +56,26 @@
 
         <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					<iframe style="width: 90%; height:100%" src="https://www.w3schools.com" title="W3Schools Free Online Web Tutorials"></iframe>
+					<div class="tab">
+						<button class="tablinks1" onclick="openCity(event, 'London')"><i class="fa fa-home" style="font-size:20px"></i></button>
+						<button class="tablinks" onclick="openCity(event, 'Paris')"><i class="fa fa-cubes" style="font-size:20px"></i> Aplikasi</button>
+						<button class="tablinks" onclick="openCity(event, 'Tokyo')"><i class='fas fa-user-circle' style='font-size:20px'></i> tentang Dev</button>
+					</div>
+					
+					<div id="London" class="tabcontent">
+						<h3>London</h3>
+						<p>London is the capital city of England.</p>
+					</div>
+
+					<div id="Paris" class="tabcontent">
+						<h3>Paris</h3>
+						<p>Paris is the capital of France.</p> 
+					</div>
+
+					<div id="Tokyo" class="tabcontent">
+						<h3>Tokyo</h3>
+						<p>Tokyo is the capital of Japan.</p>
+					</div>
         </div>
 </body>
 
@@ -89,6 +108,22 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 
+}
+</script>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 </script>
 

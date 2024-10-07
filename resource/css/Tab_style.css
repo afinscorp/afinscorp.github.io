@@ -132,7 +132,7 @@ img {
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: #000000ba;
+    background-color: #00000000;
 	backdrop-filter: blur(10px);
     overflow-x: hidden;
     transition: 0.5s;
@@ -173,11 +173,59 @@ img {
 	backdrop-filter: blur(1px);
     transition: all 0.07s ease-out 0s;
 }
-
-
-iframe {
-	margin-top: 20px;
+/*tab-menu*/
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  color : white;
 }
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 20px;
+  color: white;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #8217f594;
+  color: white;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #8217f594;
+  color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  background: white;
+  border-top: none;
+}
+
+.tablinks1 {
+	text-decoration: blink;
+	-webkit-animation-name: blinker;
+	-webkit-animation-duration: 0.6s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:ease-in-out;
+	-webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes blinker {
+  from {opacity: 1.0;}
+  to {opacity: 0.0;}
+}
+/*end for tab-menu*/
 
 section{
 	position: relative;
