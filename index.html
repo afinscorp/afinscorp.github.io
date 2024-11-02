@@ -57,26 +57,32 @@
         <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<div class="tab">
-						<button class="tablinks1" onclick="openCity(event, 'London')"><i class="fa fa-home" style="font-size:20px"></i></button>
+						<button class="tablinks1" onclick="openCity(event, 'home')"><i class="fa fa-home" style="font-size:20px"></i></button>
 						<button class="tablinks" onclick="openCity(event, 'Paris')"><i class="fa fa-cubes" style="font-size:20px"></i> Aplikasi</button>
 						<button class="tablinks" onclick="openCity(event, 'Tokyo')"><i class='fas fa-user-circle' style='font-size:20px'></i> tentang Dev</button>
+						<button class="tablinks" onclick="openCity(event, 'Jafar')"><i class='fas fa-user-circle' style='font-size:20px'></i> 4040</button>
 					</div>
 					
-					<div id="London" class="tabcontent">
+					<div id="home" class="tabcontent">
 						<h2>none page here</h2>
 					</div>
 
 					<div id="Paris" class="tabcontent">
 						<h3>Aplasi</h3>
-						 <a href="https://www.google.com/gmail/about/" target="https://www.google.com/gmail/about/"><i class='bi bi-envelope' style='font-size:15px'></i> Gmail</a>
-                    <a href="resource/App/Calculator.html" target="myframe"><i class="fa fa-calculator"></i> Kalkulator</a>
-                    <a href="resource/App/text editor live/index.html"><i class="fa fa-code" style="font-size:20px"></i> Developer mode</a>
-                    <a href="https://tomp3.cc/id7r2dj"><i class="fa fa-code" style="font-size:20px"></i> Youtube to mp3/mp4</a>
+						<a href="https://www.google.com/gmail/about/" target="https://www.google.com/gmail/about/"><i class='bi bi-envelope' style='font-size:15px'></i> Gmail</a>
+						<a href="resource/App/Calculator.html" target="myframe"><i class="fa fa-calculator"></i> Kalkulator</a>
+						<a href="resource/App/text editor live/index.html"><i class="fa fa-code" style="font-size:20px"></i> Developer mode</a>
+						<a href="https://tomp3.cc/id7r2dj"><i class="fa fa-code" style="font-size:20px"></i> Youtube to mp3/mp4</a>
 					</div>
 
 					<div id="Tokyo" class="tabcontent">
 						<h3>About Developer</h3>
 						<p>sorry, 404</p>
+					</div>
+					
+					<div id="Jafar" class="tabcontent">
+						<h3>testttttttt</h3>
+						<p>yuhuuuuuuu</p>
 					</div>
         </div>
 </body>
@@ -127,6 +133,8 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+openCity(null, 'home');
 </script>
 
 </html>
