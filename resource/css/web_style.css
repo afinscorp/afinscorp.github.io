@@ -1,21 +1,16 @@
-/* tamplate ini di miliki oleh afins corp / AF Developer 2024
-    Tamplate terbuka, boleh di pakai oleh siapapun..
-    follow my IG af_developer_
-*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'poppins',sans-serif;
-    user-select: none;
-	/*pointer-events: none;*/
+/*css untuk halaman index*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: arial;
 }
 
-.hero{
-   margin:0;
-    background-image: url('https://cdn1.airdroid.com/V3562406191729/theme/stock/images/wallpaper/default.jpg');
-	background-color: #2a5c5c;
-	height : 100%;
+.content {
+	margin: 0;
+	background-image: url('https://cdn1.airdroid.com/V3562406191729/theme/stock/images/wallpaper/default.jpg');
+	height: 100%;
 	width: 100%;
 	background-repeat: no-repeat
 	background-position: top;
@@ -28,8 +23,8 @@
 	height: 100vh;
 }
 
-nav{
-    width: 100%;
+nav {
+	width: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -48,6 +43,7 @@ nav ul li{
     display: inline-block;
     margin-left: 40px;
 }
+
 nav ul li a{
     text-decoration: none;
     color: #fff;
@@ -55,6 +51,7 @@ nav ul li a{
 	transition: 1s;
 
 }
+
 nav ul li a:hover {
     text-decoration: none;
     color: #fff;
@@ -63,19 +60,18 @@ nav ul li a:hover {
 	transition: 1s;
 }
 
-.content{
-    text-align: none;
-	position: absolute;
+.content {
+	text-align : none;
 }
 
-.content h1{
-    font-size: 30px;
-    color: #fff;
-    font-weight: 600;
+.content h1 {
+	font-size : 30px;
+	color : #fff;
+	font-weight : 600;
 }
 
-.content a{
-    text-decoration: none;
+.content a {
+	text-decoration: none;
     display: inline-block;
     color:#fff;
     font-size: 24px;
@@ -96,11 +92,21 @@ nav ul li a:hover {
     margin-top: 20px;
     transition: 1s;
 }
-/*font*/
+
+/*font_sec*/
 p{
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 20px;
     color: rgba(255, 255, 255, 0.534);
+}
+
+h3 {
+	background: #069F90;
+	background: linear-gradient(to right, #069F90 29%, #1FBBB6 50%, #27D2D2 50%, #22C1A1 50%, #45C6CF 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 40px;
+
 }
 
 h5 {
@@ -110,18 +116,9 @@ h5 {
 	font-size: 20px;
 	color: rgba(255, 255, 255, 0.534);
 }
+
 img {
 	pointer-events: none;
-}
-.back-video{
-    height: 100%;
-    margin: 0px;
-    object-fit: cover;
-    padding: 0px;
-    position: absolute;
-    width: 100%;
-	z-index : -1;
-	background-color: black;
 }
 
 /*menu*/
@@ -137,29 +134,28 @@ img {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-  }
+}
   
-  .sidenav a {
+.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
     transition: 0.3s;
-  }
+}
   
-  .sidenav a:hover {
+.sidenav a:hover {
     color: #f1f1f1;
-  }
+}
   
-  .sidenav .closebtn {
+.sidenav .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-  }
-  
+}
 
 .overlayGradient {
 	width: 100%;
@@ -173,7 +169,7 @@ img {
 	backdrop-filter: blur(1px);
     transition: all 0.07s ease-out 0s;
 }
-/*tab-menu*/
+
 /* Style the tab */
 .tab {
   overflow: hidden;
@@ -205,11 +201,15 @@ img {
   color: white;
 }
 
+/*Home*/
+.btnM {
+    color: white;
+    background: #0d6efd;
+}
 /* Style the tab content */
 .tabcontent {
-  display: none;
-  background: white;
-  border-top: none;
+	display: none;
+	border-top: none;
 }
 
 .tablinks1 {
@@ -222,8 +222,8 @@ img {
 }
 
 @-webkit-keyframes blinker {
-  from {opacity: 1.0;}
-  to {opacity: 0.0;}
+	from {opacity: 1.0;}
+	to {opacity: 0.0;}
 }
 /*end for tab-menu*/
 
@@ -283,23 +283,23 @@ input {
 }
 
 div.scrollmenu {
-  background-color: rgba(51, 51, 51, 0);
-  overflow: auto;
-  white-space: nowrap;
+	background-color: rgba(51, 51, 51, 0);
+	overflow: auto;
+	white-space: nowrap;
 }
 
 div.scrollmenu a {
-  display: inline-block;
-  color: aquamarine;
-  text-align: center;
-  padding: 15px;
-  text-decoration: none;
-  transition: 0.2s;
+	display: inline-block;
+	color: aquamarine;
+	text-align: center;
+	padding: 15px;
+	text-decoration: none;
+	transition: 0.2s;
 }
 
 div.scrollmenu a:hover {
-  background-color: rgba(119, 119, 119, 0.281);
-  transition: 0.2s;
+	background-color: rgba(119, 119, 119, 0.281);
+	transition: 0.2s;
 }
 
 
@@ -331,8 +331,7 @@ nav ul li{
     font-size: 50px;
     color: #fff;
     font-weight: 600;
-    } 
-    
+	} 
 }
 
 @media screen and (max-width: 768px) { /*size for laptop*/
@@ -411,25 +410,25 @@ input {
 }
 
 .content a{
-        text-decoration: none;
-        display: inline-block;
-        color:#fff;
-        font-size: 24px;
-        border: 2px solid aqua;
-        padding: 15px 18px;
-        border-radius: 50px;
-        margin-top: 20px;
-        transition: 1s;
-    }
+    text-decoration: none;
+    display: inline-block;
+    color:#fff;
+    font-size: 24px;
+    border: 2px solid aqua;
+    padding: 15px 18px;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: 1s;
+}
 .content a:hover{
-        text-decoration: none;
-        display: inline-block;
-        color:Linear-gradient(180deg , #198375, #abe3e3, #2dc3c394);
-        font-size: 24px;
-        border: 2px solid #198375;
-        padding: 15px 18px;
-        margin-top: 20px;
-        transition: 1s;
+    text-decoration: none;
+    display: inline-block;
+    color:Linear-gradient(180deg , #198375, #abe3e3, #2dc3c394);
+    font-size: 24px;
+    border: 2px solid #198375;
+    padding: 15px 18px;
+    margin-top: 20px;
+    transition: 1s;
 }
 
 input{
@@ -437,8 +436,8 @@ input{
     }
 }
 
- @media screen and (max-width: 425px) {
-        input{
-            width: 100%;
-        }
+@media screen and (max-width: 425px) {
+input{
+    width: 100%;
     }
+}
