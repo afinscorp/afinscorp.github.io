@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zoom background image on scroll</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="img">
+		<img src="https://cdn1.airdroid.com/V3562406191729/theme/stock/images/wallpaper/default.jpg" id="img-zoom">
+		<img src="pro.png" style="width: 100px; border-radius: 100px">
+	</div>
+	
+	<div class="main-text">		
+		<h2>Main Text</h2>
+	</div>
+	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+            $("#img-zoom img").css({
+                width: (100 + scroll / 5) + "%"
+            })
+        })
+    </script>
+</body>
+</html>
