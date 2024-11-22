@@ -22,6 +22,19 @@ html,body {
 	display:inline-block;
 	width:50%;
 }
+/*setting-css-js*/
+.ace_search.right {
+	border-radius: 20px;
+}
+
+.ace_search {
+    background-color: #414141;
+    color: white;
+}
+
+.ace_search_field {
+	background: #414141;
+}
 
 /* disable tag matching */
 .ace_editor .ace_marker-layer .ace_bracket { display: none }
