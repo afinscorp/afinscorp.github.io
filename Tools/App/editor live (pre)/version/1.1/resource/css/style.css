@@ -6,7 +6,10 @@
 }
 
 body{
-	background-image: url('https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wwu9?ver=69d6');
+	background: black;
+	color: white;
+}
+/*background-image: url('https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wwu9?ver=69d6');
 	height : 100%;
 	width: 100%;
 	background-repeat: no-repeat
@@ -17,8 +20,7 @@ body{
 	justify-content:center;
 	margin: 0 auto;
 	height: 100vh;
-	color: white;
-}
+	color: white;*/
 
 .navbar{
 	height: 40px;

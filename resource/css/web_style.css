@@ -9,7 +9,7 @@
 
 .content {
 	margin: 0;
-	background-image: url('https://cdn1.airdroid.com/V3562406191729/theme/stock/images/wallpaper/default.jpg');
+	background-image: url('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msyO8.img');
 	height: 100%;
 	width: 100%;
 	background-repeat: no-repeat
@@ -238,7 +238,7 @@ section{
 input {
     width: 700px;
     height: 100%;
-    background-color: #232b2ad9;
+    background-color: #003032c9;
     border-radius: 50px;
     border: none;
     color: aqua;
@@ -257,12 +257,12 @@ input {
 	background-color: #18475300;
 	border-radius: 50px;
 	border: none;
-	color: white;
+	color: aqua;
 	margin-left: -60px;
     transition: 1s;
 }
 .searchBtn:hover {
-    color: aqua;
+    color: #00b7b5c9;
     transition: 1s;
 }
 
