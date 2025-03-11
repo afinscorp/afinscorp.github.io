@@ -15,124 +15,29 @@
 	<!--icon tab-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--Style-page-->
-    <link rel="stylesheet" href="resource/css/web_style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="resource/css/web_style.css"> <!--style page-->
+	<!--style font-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 </head>
 
 <body>
-	<div class="hero"> 
-    <!--video-background
-	<video autoplay loop muted plays-inline class="back-video" source src="https://static.moewalls.com/videos/preview/2023/dreamy-autumn-lake-preview.mp4" type="video/mp4" style="background-color:gray;"></video>-->
-
-    <span class="overlayGradient "></span>
-
-    <!--navigasi-->
-    <nav>
-		<a href="https://afinsfeedback.blogspot.com/" class="hai" title="Developer profile"><img src="resource/media/icon/Icon INS.png" class="logo"></a>
-        <h5>AF Developer 2025</h5>
-		<ul>
-            <li><a href="#" onclick="openNav()" style="border-bottom: none;"><i class="fa fa-navicon" style="font-size:25px;color:aqua"></i></a></li>
-        </ul>
-    </nav>
-
-    <div class="content">
-		<section>
-			<div class="searchBox">
-                <input type="search" style="font-family: arial,sans-seri" name="" placeholder="Mulai cari" class="query" value="" title="klik disini untuk mencari" onkeypress="myFunction(event)"> <!--mengunakan outline untuk menghilangkan border text bar-->
-            </div>
-
-			<div class="button">
-				<button class="searchBtn"><i style="font-size: 20px;" class="fa fa-search"  aria-hidden="true"></i></button>
-			</div>
-        </section>                
-    </div>
-
-    <div id="mySidenav" class="sidenav">
-	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	<div class="tab">
-		<button class="tablinks1" onclick="openCity(event, 'home')"><i class="fa fa-home" style="font-size:20px"></i></button>
-		<button class="tablinks" onclick="openCity(event, 'Paris')"><i class="fa fa-cubes" style="font-size:20px"></i> Aplikasi</button>
-		<button class="tablinks" onclick="openCity(event, 'Dev')"><i class='fas fa-user-circle' style='font-size:20px'></i> tentang Dev</button>
-		<button class="tablinks" onclick="openCity(event, 'Jafar')"><i class='fas fa-user-circle' style='font-size:20px'></i> 4040</button>
+	<div class="navBar">
+		<h2 class="title">AF  project analyst</h2>
 	</div>
-					
-	<div id="home" class="tabcontent">
-		<h2>none page here</h2>
+	
+	<div class="content">
+		<center><img class="iconBig" src="resource/media/icon/eyes.png"></center>
+			<h1 class="alert">Server di matikan</h1>
+			
+			<p class="readme">
+			Terima kasih semua nya yang telah sering mengunjungi Web saya, tapi ada beberapa hal yang membuat
+			saya harus berhenti tapi ada kala waktu saya menyalakan lagi.
+			</p>
+			<center>
+				<button class="NextRead">Pelajari lebih lanjut</button>
+			</center>
+			
+			
 	</div>
-
-	<div id="Paris" class="tabcontent">
-	<h3>Aplasi</h3>
-		<a href="https://www.google.com/gmail/about/" target="https://www.google.com/gmail/about/"><i class='bi bi-envelope' style='font-size:15px'></i> Gmail</a>
-		<a href="Tools/resource/App/Calculator.html" target="myframe"><i class="fa fa-calculator"></i> Kalkulator</a>
-		<a href="Tools/App/editor live (pre)/index.html"><i class="fa fa-code" style="font-size:20px"></i> Developer mode (pre)</a>
-		<a href="https://tomp3.cc/id7r2dj"><i class="fa fa-code" style="font-size:20px"></i> Youtube to mp3/mp4</a>
-	</div>
-
-	<div id="Dev" class="tabcontent">
-		<!--about dev-->
-		<center><img src="resource/media/icon/profile.jpeg" style="width: 150px; border-radius: 100px"></center>
-		<h3 style="text-align: center">About Developer</h3>
-	</div>
-					
-	<div id="Jafar" class="tabcontent">
-	<h3>......</h3>
-		<p>yuhuuuuuuu</p>
-	</div>
-</div>
-</body>
-
-<script>
-let query = document.querySelector(".query");
-        let searchBtn = document.querySelector(".searchBtn");
-
-        searchBtn.onclick = function(){
-                let url = "https://www.google.com/search?q="+query.value;
-                window.open(url,'_self');
-        }
-
-</script>
-
-<script>
-function myFunction(event){
-                let value= event.which;
-                if (value==13) url = "https://www.google.com/search?q="+query.value;
-                window.open(url,'_self');
-        }
-</script>
-
-<!--for-main-menu-->
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "100%";
-
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-
-}
-</script>
-
-<script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-
-openCity(null, 'home');
-</script>
-
-</html>
+</body
+	
