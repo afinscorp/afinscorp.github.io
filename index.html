@@ -1,43 +1,102 @@
-<!--tamplate ini di miliki oleh afins corp / AF Developer 2024
-    Tamplate terbuka, boleh di pakai oleh siapapun..
-    follow my IG af_developer_-->
-
-<!--desain web oleh afins corp 2024-->
-<!--harus hizin kepada pengguna tamplate ini-->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Tab</title>
-	<!--icon tab-->
-    <link rel="icon" href="resource/media/icon/Icon INS.png"></link>
-	<!--icon tab-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--Style-page-->
-    <link rel="stylesheet" href="resource/css/web_style.css"> <!--style page-->
-	<!--style font-->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-</head>
+    <title>AF Porfolio</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+		
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 225px 0px 200px 0px;
+        }
 
+        .profile-image-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 100px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bottom-tab {
+            background-color: #2c2c2c;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 10px 10px 0 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+        }
+
+        .bottom-tab-content {
+            padding: 20px;
+        }
+
+        /* Style saat di-scroll */
+        body.scrolled .profile-image-container {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            margin-bottom: 0;
+        }
+
+        body.scrolled .bottom-tab {
+            transform: translateY(0);
+        }
+    </style>
+</head>
 <body>
-	<div class="navBar">
-		<h2 class="title">AF  project analyst</h2>
-	</div>
-	
-	<div class="content">
-		<center><img class="iconBig" src="resource/media/icon/eyes.png"></center>
-			<h1 class="alert">Server di matikan</h1>
-			
-			<p class="readme">
-			Terima kasih semua nya yang telah sering mengunjungi Web saya, tapi ada beberapa hal yang membuat
-			saya harus berhenti tapi ada kala waktu saya menyalakan lagi.
-			</p>
-			<center>
-				<button class="NextRead">Pelajari lebih lanjut</button>
-			</center>
-			
-			
-	</div>
-</body
-	
+    <div class="container">
+        <div class="profile-image-container">
+            <img src="https://avatars.githubusercontent.com/u/142324730?s=400&u=51fc52fe1ff01938c2c28c162e0cddf8d8211a84&v=4" alt="Profile Picture" class="profile-image">
+        </div>
+        
+        <h2>Hallo, Welcome to my AF project Tech</h2>
+		<p> Ada info menarik, kemungkinan besar web ini akan di nyalakan kembali servernya. Untuk pelatihan web, mohon dukungan nya ya!</p>
+    <div class="bottom-tab">
+        <div class="bottom-tab-content">
+            <h2>AF Developer 2025-2026</h2>
+            <p>Tamplate by Gemini based</p>
+            
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
+            }
+        });
+    </script>
+    
+</body>
+</html>
