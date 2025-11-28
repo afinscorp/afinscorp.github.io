@@ -3,205 +3,269 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web aplication</title>
+  <title>Web Application</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --pixel-bg: #121212; /* gelap untuk header */
-      --accent: #1a73e8; /* aksen biru seperti Pixel */
-      --surface: #ffffff;
-      --muted: #9e9e9e;
+      --header-bg: #121212;
+      --card-bg: rgb(35, 35, 35);
+      --highlight: #08ff00;
+      --text-main: #ffffff;
+      --text-muted: #b0b0b0;
+      --input-bg: #2a2a2a; 
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Roboto, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(#f5f7fb,#eef2f7);}
+    html,body{height:100%; margin:0; font-family: 'Roboto', sans-serif; background: #000; color: white;}
 
-    /* Header (awal: tak terlihat). Setelah scroll -> muncul */
+    /* --- HEADER UTAMA --- */
     .header {
-      position:fixed;
-      left:0;right:0;top:0;
-      height:64px;
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:0 16px;
-      z-index:1000;
-
-      /* awal tidak terlihat */
-      background:transparent;
-      color:var(--surface);
-      transform:translateY(-100%);
-      opacity:0;
-      transition:transform .28s ease, background .28s ease, opacity .28s ease, box-shadow .28s ease;
+      position: fixed;
+      left: 0; right: 0; top: 0;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      z-index: 1000;
+      background: var(--header-bg);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      gap: 16px; /* Jarak antar elemen */
     }
 
-    /* saat sudah discroll */
-    .header.scrolled{
-      transform:translateY(0);
-      opacity:1;
-      background:var(--pixel-bg);
-      box-shadow:0 2px 12px rgba(0,0,0,.35);
+    /* 1. BAGIAN KIRI (Logo + Teks) */
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0; /* Mencegah logo mengecil/gepeng */
     }
 
-    .hamburger{
-      width:40px;height:40px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
-      background:rgba(255,255,255,0.06);
-      border:1px solid rgba(255,255,255,0.04);
+    .logo-img {
+      width: 36px; 
+      height: 36px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+      background: white;
     }
-    .title{font-weight:500;letter-spacing:.2px}
 
-    /* konten demo */
-    .hero{
-      height:360px;
-      display:flex;align-items:center;justify-content:center;flex-direction:column;
-      background:#08ff00;
-      padding:48px 16px;
-      text-align:center;
+    .app-title {
+      font-weight: 500;
+      font-size: 16px;
+      white-space: nowrap; /* Teks tidak turun baris */
     }
-    .hero h1{margin:0 0 12px;font-size:28px;color:#000}
-    .hero p{margin:0;color:var(--muted)}
 
-    main{max-width:920px;margin:0 auto;padding:24px; background: #000; text-decoration: none;}
-
-    .card{background:rgb(27, 27, 27);border-radius:14px;padding:18px;margin:18px 0;box-shadow:0 6px 18px rgba(19,24,29,0.06); text-decoration: none}
-    .card:hover{background:#08ff00; color: black}
-
-    /* contoh tombol kosong */
-    .btn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
-    .btn{
-      height:48px;border-radius:12px;border:0;cursor:pointer;font-weight:500;font-size:15px;
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;user-select:none;
-      background:#f1f3f4;color:#202124;box-shadow:0 1px 0 rgba(0,0,0,0.02) inset;
+    /* 2. BAGIAN TENGAH (Search Bar) */
+    .header-center {
+      flex-grow: 1; /* Mengambil sisa ruang kosong */
+      display: flex;
+      justify-content: center; /* Posisi input di tengah ruang tsb */
     }
-    .btn.empty{background:linear-gradient(90deg,#e9f3ff,#f6f9ff);color:#0b3b6f;border:1px solid rgba(11,59,111,0.06)}
 
-    footer{padding:32px 0;text-align:center;color:var(--muted)}
+    .search-input {
+      width: 100%;
+      max-width: 600px; /* Batas lebar agar tidak terlalu panjang di PC */
+      height: 40px;
+      background: var(--input-bg);
+      border: 1px solid #444;
+      border-radius: 24px; /* Membuat lonjong */
+      padding: 0 20px;
+      color: white;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
 
-    /* spacer supaya halaman cukup panjang untuk scroll */
-    .spacer{height:900px}
+    .search-input::placeholder {
+      color: #888;
+    }
 
-    /* small screens tweak */
-    @media (max-width:480px){.hero{height:200px}.header{height:56px}}
+    /* Efek saat diklik */
+    .search-input:focus {
+      background: #333;
+      border-color: var(--highlight); /* Hijau saat aktif */
+      box-shadow: 0 0 8px rgba(8, 255, 0, 0.2);
+    }
 
+    /* --- KONTEN HERO --- */
+    /* Hijau terang seperti di gambar referensi Anda */
+    .hero {
+      margin-top: 64px; /* Jarak dari header */
+      height: 120px;
+      background: var(--highlight); 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero h1 { margin: 0; font-size: 24px; font-weight: 700; }
+    .hero p { margin: 4px 0 0; font-size: 14px; opacity: 0.8; }
+
+    /* --- LIST KARTU --- */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+
+    .card-link {
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      color: var(--text-muted);
+      padding: 16px 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Teks kiri, panah kanan */
+      transition: background 0.2s, transform 0.2s;
+      border: 1px solid transparent;
+    }
+
+    /* Hover Effect */
+    .card-link:hover .card {
+      background: #333;
+      color: white;
+      border-color: #555;
+      transform: translateX(4px);
+    }
+
+    .hidden { display: none !important; }
+    hr { border: 0; border-top: 1px solid #333; margin: 24px 0; }
+
+    /* --- RESPONSIVE MOBILE --- */
+    @media (max-width: 600px) {
+      .app-title {
+        display: none; /* Sembunyikan teks "F Developer" di HP agar search bar muat */
+      }
+      .header {
+        padding: 0 12px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header: awalnya tak terlihat; JS menambahkan kelas .scrolled saat pengguna scroll ke bawah -->
-  <header id="appHeader" class="header" role="banner" aria-hidden="true">
-    <img src="a.png" alt="Description of the image" style="width: 50px; border-radius: 100%;">
-    <div class="title">F Developer</div>
-  </header>
+  <header class="header">
+    <div class="header-left">
+      <img src="a.png" alt="Logo" class="logo-img">
+      <span class="app-title">Web Apps</span>
+    </div>
 
-  <!-- Konten besar supaya ada scroll -->
+    <div class="header-center">
+      <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+    </div>
+    
+    </header>
+pp
   <section class="hero">
-    <h1>Web Aplication</h1>
+    <div>
+      <h1>Web Application</h1>
+      <p>Akses Cepat Tools Favorit</p>
+    </div>
   </section>
 
   <main>
-     <a href="https://quranweb.id/" style="text-decoration: none; color: white">
-    <div class="card">Al-Qur'an
-    </div>
-    </a>
+    <div id="cardList">
+        <a href="https://quranweb.id/" class="card-link searchable">
+            <div class="card">Al-Qur'an <span>&rsaquo;</span></div>
+        </a>
 
-     <a href="https://mail.google.com/mail/?authuser=0" style="text-decoration: none; color: white">
-    <div class="card">G Account Access
-    </div>
-    </a>
-    
-     <a href="https://outlook.live.com/mail/0/" style="text-decoration: none; color: white">
-    <div class="card">MS Account Access
-    </div>
-     </a>
-    
-     <a href="https://classroom.google.com/?authuser=0" style="text-decoration: none; color: white">
-    <div class="card">Google Class Room    </div>
+        <a href="https://mail.google.com/" class="card-link searchable">
+            <div class="card">G Account Access <span>&rsaquo;</span></div>
+        </a>
+        
+        <a href="https://outlook.live.com/" class="card-link searchable">
+            <div class="card">MS Account Access <span>&rsaquo;</span></div>
+        </a>
+        
+        <a href="https://classroom.google.com/" class="card-link searchable">
+            <div class="card">Google Classroom <span>&rsaquo;</span></div>
+        </a>
 
-    <a href="https://docs.google.com/forms/?authuser=0" style="text-decoration: none; color: white">
-    <div class="card">Google Froms
-    </div>
-    </a>
+        <a href="https://docs.google.com/forms/" class="card-link searchable">
+            <div class="card">Google Forms <span>&rsaquo;</span></div>
+        </a>
 
-    <a href="https://www.youtube.com/?authuser=0/" style="text-decoration: none; color: white">
-    <div class="card">Youtube
-    </div>
-    </a>
+        <a href="https://youtube.com/" class="card-link searchable">
+            <div class="card">Youtube <span>&rsaquo;</span></div>
+        </a>
 
-     <a href="https://www.yufid.com/" style="text-decoration: none; color: white">
-    <div class="card">Yufid
-    </div>
-    </a>
+        <a href="https://yufid.com/" class="card-link searchable">
+            <div class="card">Yufid <span>&rsaquo;</span></div>
+        </a>
 
-    <a href="https://www.wikipedia.org/" style="text-decoration: none; color: white">
-    <div class="card">wikipedia
-    </div>
-    </a>
+        <a href="https://wikipedia.org/" class="card-link searchable">
+            <div class="card">Wikipedia <span>&rsaquo;</span></div>
+        </a>
 
-    <a href="https://translate.google.com/" style="text-decoration: none; color: white">
-    <div class="card">Translate
-    </div>
-    </a>
+        <a href="https://translate.google.com/" class="card-link searchable">
+            <div class="card">Translate <span>&rsaquo;</span></div>
+        </a>
 
-    <hr style="color: #08ff00;">
+        <hr> <a href="https://gemini.google.com/" class="card-link searchable">
+            <div class="card">Gemini AI <span style="color: var(--highlight);">✦</span></div>
+        </a>
 
-    <a href="gemini.google.com/" style="text-decoration: none; color: white">
-    <div class="card">Gemini AI
-    </div>
+        <a href="https://chatgpt.com/" class="card-link searchable">
+            <div class="card">ChatGPT <span style="color: var(--highlight);">✦</span></div>
+        </a>
 
+        <a href="https://deepseek.com/" class="card-link searchable">
+            <div class="card">DeepSeek <span style="color: var(--highlight);">✦</span></div>
+        </a>
 
-    <a href="https://chatgpt.com/" style="text-decoration: none; color: white">
-    <div class="card">ChatGPT
-    </div>
+        <hr>
 
-    <a href="https://www.deepseek.com/" style="text-decoration: none; color: white">
-    <div class="card">deepseek
-    </div>
+        <a href="https://developer.android.com/" class="card-link searchable">
+            <div class="card">Android Developer <span>&#9881;</span></div>
+        </a>
 
-    <a href="https://claude.ai/" style="text-decoration: none; color: white">
-    <div class="card">Claude AI
+        <a href="https://w3schools.com/" class="card-link searchable">
+            <div class="card">Web Developer <span>&#9881;</span></div>
+        </a>
     </div>
 
-    <hr style="color: #08ff00;">
-
-    <a href="https://developer.android.com/?hl=id" style="text-decoration: none; color: white">
-    <div class="card">Android Developer
+    <div id="noResults" style="display: none; text-align: center; color: #666; margin-top: 40px;">
+        <p>Aplikasi tidak ditemukan.</p>
     </div>
-
-    <a href="https://www.w3schools.com/" style="text-decoration: none; color: white">
-    <div class="card">Web Developer
-    </div>
-
   </main>
   
   <script>
-    (function(){
-      const header = document.getElementById('appHeader');
-      let lastScroll = 0;
+    // SCRIPT PENCARIAN
+    const searchInput = document.getElementById('searchInput');
+    const items = document.querySelectorAll('.searchable');
+    const noResultsMsg = document.getElementById('noResults');
+    const hrs = document.querySelectorAll('hr');
 
-      function onScroll(){
-        const y = window.scrollY || window.pageYOffset;
-        // tampilkan header hanya jika sudah discroll lebih dari 40px
-        if(y > 40){
-          if(!header.classList.contains('scrolled')){
-            header.classList.add('scrolled');
-            header.setAttribute('aria-hidden','false');
+    searchInput.addEventListener('input', function(e) {
+      const text = e.target.value.toLowerCase();
+      let found = false;
+
+      items.forEach(item => {
+          if(item.innerText.toLowerCase().includes(text)) {
+              item.classList.remove('hidden');
+              found = true;
+          } else {
+              item.classList.add('hidden');
           }
-        } else {
-          // jika kembali ke atas, sembunyikan lagi
-          if(header.classList.contains('scrolled')){
-            header.classList.remove('scrolled');
-            header.setAttribute('aria-hidden','true');
-          }
-        }
-        lastScroll = y;
+      });
+
+      // Atur visibilitas pesan kosong dan garis pemisah
+      if (!found) {
+          noResultsMsg.style.display = 'block';
+          hrs.forEach(hr => hr.style.display = 'none');
+      } else {
+          noResultsMsg.style.display = 'none';
+          // Sembunyikan garis jika sedang mengetik, munculkan jika kosong
+          hrs.forEach(hr => hr.style.display = text ? 'none' : 'block');
       }
-
-      // dengarkan event scroll dengan passive listener untuk performa
-      window.addEventListener('scroll', onScroll, {passive:true});
-
-      // inisialisasi jika user membuka halaman sudah di bawah
-      onScroll();
-    })();
+    });
   </script>
 </body>
 </html>
