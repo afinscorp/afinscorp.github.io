@@ -9,10 +9,17 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   :root{--bg:#02181f;--sidebar:#021a22;--card:#042530;--cyan:#00d4e8;--cyan2:#00b8c8;--text:#c8f0f5;--muted:#5a9aaa;--danger:#e84040;}
   body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
-  header{background:linear-gradient(90deg,#021f28,#043a48);padding:14px 24px;text-align:center;border-bottom:2px solid var(--cyan);flex-shrink:0;}
-  header h1{font-family:'Cinzel',serif;font-size:1.4rem;color:var(--cyan);letter-spacing:2px;font-style:italic;}
-  .main{display:flex;flex:1;overflow:hidden;}
-  .sidebar{width:220px;background:var(--sidebar);border-right:1px solid #0a3a45;display:flex;flex-direction:column;flex-shrink:0;}
+
+  header{background:linear-gradient(90deg,#021f28,#043a48);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--cyan);flex-shrink:0;}
+  header h1{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--cyan);letter-spacing:2px;font-style:italic;flex:1;text-align:center;}
+  .menu-btn{background:none;border:none;color:var(--cyan);cursor:pointer;padding:4px;display:none;}
+  .logout-header-btn{background:none;border:1.5px solid #0a4a58;color:var(--muted);padding:5px 10px;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.8rem;white-space:nowrap;transition:all 0.2s;}
+  .logout-header-btn:hover{border-color:var(--danger);color:var(--danger);}
+
+  .main{display:flex;flex:1;overflow:hidden;position:relative;}
+
+  /* SIDEBAR */
+  .sidebar{width:220px;background:var(--sidebar);border-right:1px solid #0a3a45;display:flex;flex-direction:column;flex-shrink:0;transition:transform 0.3s;}
   .search-box{padding:12px;border-bottom:1px solid #0a3a45;}
   .search-wrap{position:relative;}
   .search-wrap input{width:100%;background:#021820;border:1.5px solid var(--cyan);color:var(--text);padding:8px 36px 8px 12px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:0.95rem;outline:none;}
@@ -25,49 +32,93 @@
   .game-item span{font-size:0.9rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .del-btn{background:none;border:none;color:var(--muted);cursor:pointer;padding:2px 4px;flex-shrink:0;}
   .del-btn:hover{color:var(--danger);}
-  .add-wrap{padding:10px;}
-  .add-btn{width:100%;background:var(--cyan);color:#021820;border:none;padding:10px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;cursor:pointer;}
+  .sidebar-actions{padding:10px;display:flex;flex-direction:column;gap:8px;border-top:1px solid #0a3a45;}
+  .add-btn{width:100%;background:var(--cyan);color:#021820;border:none;padding:10px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;cursor:pointer;}
   .add-btn:hover{background:var(--cyan2);}
-  .sidebar-footer{padding:12px;border-top:1px solid #0a3a45;}
-  .logout-btn{width:100%;background:#021e28;border:1.5px solid #0a4a58;color:var(--muted);padding:10px;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.9rem;display:flex;align-items:center;gap:8px;transition:all 0.2s;}
-  .logout-btn:hover{border-color:var(--danger);color:var(--danger);}
-  .content{flex:1;padding:24px;overflow-y:auto;}
-  .idle-msg{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);}
+  .about-edit-btn{width:100%;background:#021e28;border:1.5px solid var(--cyan);color:var(--cyan);padding:8px;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.85rem;transition:all 0.2s;}
+  .about-edit-btn:hover{background:var(--cyan);color:#021820;}
+
+  /* CONTENT */
+  .content{flex:1;padding:20px;overflow-y:auto;}
+  .content::-webkit-scrollbar{width:4px;}
+  .content::-webkit-scrollbar-thumb{background:var(--cyan2);border-radius:4px;}
+  .idle-msg{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);text-align:center;}
+
+  /* FORM GAME */
   .form-wrap{display:none;}
   .form-wrap.show{display:block;}
-  .form-title{font-family:'Cinzel',serif;color:var(--cyan);font-size:1.2rem;text-align:center;margin-bottom:28px;letter-spacing:2px;}
-  .form-grid{display:grid;grid-template-columns:1fr 220px;gap:20px;}
-  .form-left{display:flex;flex-direction:column;gap:14px;}
-  .form-input{background:#021820;border:1.5px solid #0a4a58;color:var(--text);padding:12px 16px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1rem;outline:none;transition:border-color 0.2s;}
+  .form-title{font-family:'Cinzel',serif;color:var(--cyan);font-size:1.1rem;text-align:center;margin-bottom:20px;letter-spacing:2px;}
+  .form-grid{display:grid;grid-template-columns:1fr 200px;gap:16px;}
+  .form-left{display:flex;flex-direction:column;gap:12px;}
+  .form-input{background:#021820;border:1.5px solid #0a4a58;color:var(--text);padding:10px 14px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;width:100%;}
   .form-input:focus{border-color:var(--cyan);}
   .form-input::placeholder{color:var(--muted);}
-  .img-upload{background:#021820;border:1.5px dashed #0a4a58;border-radius:6px;height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;position:relative;transition:border-color 0.2s;}
+  .img-upload{background:#021820;border:1.5px dashed #0a4a58;border-radius:6px;height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;position:relative;transition:border-color 0.2s;}
   .img-upload:hover{border-color:var(--cyan);}
   .img-upload img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
-  .img-label{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:0.85rem;z-index:1;text-align:center;}
-  .form-actions{display:flex;justify-content:flex-end;margin-top:20px;gap:10px;}
-  .finish-btn{background:var(--cyan);color:#021820;border:none;padding:10px 28px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;}
+  .img-label{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--muted);font-size:0.8rem;z-index:1;text-align:center;padding:8px;}
+  .form-actions{display:flex;justify-content:flex-end;margin-top:16px;gap:10px;}
+  .finish-btn{background:var(--cyan);color:#021820;border:none;padding:9px 24px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;}
   .finish-btn:disabled{opacity:0.5;cursor:not-allowed;}
-  .cancel-btn{background:none;border:1.5px solid #0a4a58;color:var(--muted);padding:10px 20px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1rem;cursor:pointer;}
+  .cancel-btn{background:none;border:1.5px solid #0a4a58;color:var(--muted);padding:9px 18px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:0.95rem;cursor:pointer;}
   .cancel-btn:hover{border-color:var(--danger);color:var(--danger);}
-  .toast{position:fixed;bottom:24px;right:24px;padding:10px 20px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:0.95rem;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:9999;}
-  .toast.ok{background:var(--cyan);color:#021820;}
-  .toast.err{background:var(--danger);color:#fff;}
-  .toast.show{opacity:1;}
-  .overlay{position:fixed;inset:0;background:rgba(2,15,20,0.9);display:none;align-items:center;justify-content:center;z-index:999;}
+
+  /* FORM ABOUT */
+  .about-form-wrap{display:none;}
+  .about-form-wrap.show{display:block;}
+  .about-grid{display:grid;grid-template-columns:1fr 180px;gap:16px;align-items:start;}
+  .about-left{display:flex;flex-direction:column;gap:12px;}
+  .about-img-upload{background:#021820;border:1.5px dashed #0a4a58;border-radius:50%;width:150px;height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;position:relative;transition:border-color 0.2s;margin:0 auto;}
+  .about-img-upload:hover{border-color:var(--cyan);}
+  .about-img-upload img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:50%;}
+  .about-img-label{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--muted);font-size:0.75rem;z-index:1;text-align:center;padding:8px;}
+
+  /* OVERLAYS */
+  .overlay{position:fixed;inset:0;background:rgba(2,15,20,0.9);display:none;align-items:center;justify-content:center;z-index:999;padding:16px;}
   .overlay.show{display:flex;}
-  .confirm-box{background:var(--card);border:2px solid var(--danger);border-radius:10px;padding:32px 28px;width:300px;text-align:center;}
-  .confirm-box h3{font-family:'Cinzel',serif;color:var(--danger);margin-bottom:12px;}
-  .confirm-box p{color:var(--text);margin-bottom:20px;font-size:0.95rem;}
+  .confirm-box{background:var(--card);border:2px solid var(--danger);border-radius:10px;padding:28px;width:100%;max-width:300px;text-align:center;}
+  .confirm-box h3{font-family:'Cinzel',serif;color:var(--danger);margin-bottom:10px;}
+  .confirm-box p{color:var(--text);margin-bottom:18px;font-size:0.9rem;}
   .confirm-btns{display:flex;gap:10px;justify-content:center;}
   .btn-yes{background:var(--danger);color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-weight:700;}
   .btn-no{background:none;border:1.5px solid #0a4a58;color:var(--muted);padding:8px 20px;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;}
+
+  /* TOAST */
+  .toast{position:fixed;bottom:20px;right:20px;padding:10px 18px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:0.9rem;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:9999;}
+  .toast.ok{background:var(--cyan);color:#021820;}
+  .toast.err{background:var(--danger);color:#fff;}
+  .toast.show{opacity:1;}
+
+  /* SIDEBAR OVERLAY MOBILE */
+  .sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:98;display:none;}
+  .sidebar-overlay.show{display:block;}
+
+  /* RESPONSIVE */
+  @media(max-width:640px){
+    .menu-btn{display:block;}
+    .sidebar{position:fixed;left:0;top:0;bottom:0;z-index:99;transform:translateX(-100%);}
+    .sidebar.open{transform:translateX(0);}
+    .form-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .about-img-upload{width:120px;height:120px;}
+    .content{padding:14px;}
+    header h1{font-size:0.95rem;}
+  }
 </style>
 </head>
 <body>
-<header><h1>Mamana AF (Admin)</h1></header>
+<header>
+  <button class="menu-btn" onclick="toggleSidebar()">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <h1>Mamana AF (Admin)</h1>
+  <button class="logout-header-btn" onclick="window.location.href='index.html'">← Keluar</button>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
 <div class="main">
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <div class="search-box">
       <div class="search-wrap">
         <input type="text" id="searchInput" placeholder="Cari game..." oninput="renderList()"/>
@@ -75,51 +126,78 @@
       </div>
     </div>
     <div class="game-list" id="gameList"><div style="color:var(--muted);text-align:center;padding:16px;font-size:0.85rem;">Memuat...</div></div>
-    <div class="add-wrap">
-      <button class="add-btn" onclick="showForm()">+</button>
-    </div>
-    <div class="sidebar-footer">
-      <button class="logout-btn" onclick="window.location.href='index.html'">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Keluar Admin
-      </button>
+    <div class="sidebar-actions">
+      <button class="add-btn" onclick="showGameForm()">+ Tambah Game</button>
+      <button class="about-edit-btn" onclick="showAboutForm()">✎ Edit Tentang Kami</button>
     </div>
   </div>
 
   <div class="content">
-    <div class="idle-msg" id="idleMsg">Klik <b style="color:var(--cyan);margin:0 4px">+</b> untuk menambah game baru</div>
-    <div class="form-wrap" id="formWrap">
+    <div class="idle-msg" id="idleMsg">Pilih aksi dari sidebar</div>
+
+    <!-- FORM TAMBAH GAME -->
+    <div class="form-wrap" id="gameFormWrap">
       <div class="form-title">Link Game Baru</div>
       <div class="form-grid">
         <div class="form-left">
           <input class="form-input" type="text" id="fTitle" placeholder="Judul game"/>
-          <input class="form-input" type="text" id="fDesc" placeholder="Diskripsi"/>
+          <input class="form-input" type="text" id="fDesc" placeholder="Deskripsi"/>
           <input class="form-input" type="text" id="fLink" placeholder="Link game (https://...)"/>
-          <input class="form-input" type="text" id="fImgUrl" placeholder="URL gambar (https://...)" oninput="previewImgUrl()"/>
+          <input class="form-input" type="text" id="fImgUrl" placeholder="URL gambar (opsional)" oninput="previewGameImgUrl()"/>
         </div>
         <div>
-          <div class="img-upload" id="imgUpload" onclick="document.getElementById('fImg').click()">
-            <img id="imgPreview" src="" style="display:none;"/>
-            <div class="img-label" id="imgLabel">
-              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Klik upload gambar<br/>atau isi URL di bawah
+          <div class="img-upload" onclick="document.getElementById('fImg').click()">
+            <img id="gameImgPreview" src="" style="display:none;"/>
+            <div class="img-label" id="gameImgLabel">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Upload gambar
             </div>
-            <input type="file" id="fImg" accept="image/*" style="display:none;" onchange="previewImgFile(event)"/>
+            <input type="file" id="fImg" accept="image/*" style="display:none;" onchange="previewGameImgFile(event)"/>
           </div>
         </div>
       </div>
       <div class="form-actions">
-        <button class="cancel-btn" onclick="hideForm()">Batal</button>
-        <button class="finish-btn" id="finishBtn" onclick="saveGame()">Finish</button>
+        <button class="cancel-btn" onclick="hideGameForm()">Batal</button>
+        <button class="finish-btn" id="gameFinishBtn" onclick="saveGame()">Simpan</button>
+      </div>
+    </div>
+
+    <!-- FORM EDIT TENTANG KAMI -->
+    <div class="about-form-wrap" id="aboutFormWrap">
+      <div class="form-title">Edit Tentang Kami</div>
+      <div class="about-grid">
+        <div class="about-left">
+          <input class="form-input" type="text" id="aName" placeholder="Nama aplikasi"/>
+          <input class="form-input" type="text" id="aVersion" placeholder="Versi (contoh: 1.0.0)"/>
+          <input class="form-input" type="text" id="aTagline" placeholder="Tagline"/>
+          <input class="form-input" type="text" id="aCredit" placeholder="Nama pembuat / kredit"/>
+          <textarea class="form-input" id="aDesc" placeholder="Deskripsi aplikasi" rows="3" style="resize:vertical;"></textarea>
+          <input class="form-input" type="text" id="aImgUrl" placeholder="URL foto profil (opsional)" oninput="previewAboutImgUrl()"/>
+        </div>
+        <div>
+          <div class="about-img-upload" onclick="document.getElementById('aImg').click()">
+            <img id="aboutImgPreview" src="" style="display:none;border-radius:50%;"/>
+            <div class="about-img-label" id="aboutImgLabel">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5S14.7 2 12 2 7 4.3 7 7s2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg>
+              Upload foto
+            </div>
+            <input type="file" id="aImg" accept="image/*" style="display:none;" onchange="previewAboutImgFile(event)"/>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="cancel-btn" onclick="hideAboutForm()">Batal</button>
+        <button class="finish-btn" id="aboutFinishBtn" onclick="saveAbout()">Simpan</button>
       </div>
     </div>
   </div>
 </div>
 
+<!-- CONFIRM DELETE -->
 <div class="overlay" id="confirmOverlay">
   <div class="confirm-box">
     <h3>Hapus Game</h3>
-    <p id="confirmMsg">Yakin hapus game ini?</p>
+    <p id="confirmMsg">Yakin hapus?</p>
     <div class="confirm-btns">
       <button class="btn-no" onclick="hideConfirm()">Batal</button>
       <button class="btn-yes" onclick="confirmDelete()">Hapus</button>
@@ -129,18 +207,19 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  const API = 'https://script.google.com/macros/s/AKfycbz9DZDFtgwn2jqv2-pj-udbiTHt34amyiGjw03Peig7TAiDfdN1Yd-nqyeK8oH8BdCumg/exec';
+  const API = 'https://script.google.com/macros/s/AKfycbwG9GrCXKtpobyzhFkSkR3OI-ShknOKxR1kwm-djp3jJzeE2YFt5rquJ3TBeo1_MSjWKg/exec';
   let games = [];
   let deleteTarget = null;
-  let imgBase64 = null;
+  let gameImgBase64 = null;
+  let aboutImgBase64 = null;
 
-  // ===== API CALLS =====
   async function apiGet(params){
-    const url = API + '?' + new URLSearchParams({...params, t: Date.now()}).toString();
+    const url = API + '?' + new URLSearchParams({...params, t: Date.now()});
     const res = await fetch(url);
     return res.json();
   }
 
+  // ===== LOAD DATA =====
   async function loadGames(){
     try {
       const data = await apiGet({});
@@ -149,20 +228,37 @@
     renderList();
   }
 
-  // ===== RENDER =====
+  async function loadAboutForm(){
+    try {
+      const data = await apiGet({sheet:'about'});
+      document.getElementById('aName').value = data.appname || '';
+      document.getElementById('aVersion').value = data.version || '';
+      document.getElementById('aTagline').value = data.tagline || '';
+      document.getElementById('aCredit').value = data.credit || '';
+      document.getElementById('aDesc').value = data.desc || '';
+      document.getElementById('aImgUrl').value = data.image || '';
+      if(data.image){
+        document.getElementById('aboutImgPreview').src = data.image;
+        document.getElementById('aboutImgPreview').style.display = 'block';
+        document.getElementById('aboutImgLabel').style.display = 'none';
+      }
+    } catch(e){}
+  }
+
+  // ===== RENDER GAMES =====
   function renderList(){
     const q = document.getElementById('searchInput').value.toLowerCase();
     const list = games.filter(g => g.title.toLowerCase().includes(q));
     const el = document.getElementById('gameList');
-    if(list.length === 0){
-      el.innerHTML = '<div style="color:var(--muted);text-align:center;padding:16px;font-size:0.85rem;">Belum ada game</div>';
+    if(list.length===0){
+      el.innerHTML='<div style="color:var(--muted);text-align:center;padding:16px;font-size:0.85rem;">Belum ada game</div>';
       return;
     }
-    el.innerHTML = list.map(g => `
+    el.innerHTML = list.map(g=>`
       <div class="game-item">
         <span title="${g.title}">${g.title}</span>
         <button class="del-btn" onclick="askDelete('${g.id}','${g.title.replace(/'/g,'&apos;')}')" title="Hapus">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/>
             <path d="M10 11v6M14 11v6M9 6V4h6v2"/>
           </svg>
@@ -171,123 +267,172 @@
     `).join('');
   }
 
-  // ===== FORM =====
-  function showForm(){
-    document.getElementById('idleMsg').style.display = 'none';
-    document.getElementById('formWrap').classList.add('show');
-    document.getElementById('fTitle').value = '';
-    document.getElementById('fDesc').value = '';
-    document.getElementById('fLink').value = '';
-    document.getElementById('fImgUrl').value = '';
-    document.getElementById('fImg').value = '';
-    document.getElementById('imgPreview').style.display = 'none';
-    document.getElementById('imgLabel').style.display = 'flex';
-    imgBase64 = null;
+  // ===== GAME FORM =====
+  function showGameForm(){
+    closeSidebar();
+    document.getElementById('idleMsg').style.display='none';
+    document.getElementById('aboutFormWrap').classList.remove('show');
+    document.getElementById('gameFormWrap').classList.add('show');
+    document.getElementById('fTitle').value='';
+    document.getElementById('fDesc').value='';
+    document.getElementById('fLink').value='';
+    document.getElementById('fImgUrl').value='';
+    document.getElementById('fImg').value='';
+    document.getElementById('gameImgPreview').style.display='none';
+    document.getElementById('gameImgLabel').style.display='flex';
+    gameImgBase64=null;
     document.getElementById('fTitle').focus();
   }
-
-  function hideForm(){
-    document.getElementById('formWrap').classList.remove('show');
-    document.getElementById('idleMsg').style.display = 'flex';
+  function hideGameForm(){
+    document.getElementById('gameFormWrap').classList.remove('show');
+    document.getElementById('idleMsg').style.display='flex';
   }
 
-  function previewImgFile(e){
-    const file = e.target.files[0];
-    if(!file) return;
-    // Resize dulu biar tidak terlalu besar
+  function previewGameImgFile(e){
+    const file = e.target.files[0]; if(!file) return;
     const reader = new FileReader();
     reader.onload = ev => {
       const img = new Image();
       img.onload = () => {
         const canvas = document.createElement('canvas');
-        const MAX = 400;
-        let w = img.width, h = img.height;
-        if(w > h){ if(w>MAX){h=h*MAX/w;w=MAX;} } else { if(h>MAX){w=w*MAX/h;h=MAX;} }
-        canvas.width = w; canvas.height = h;
-        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-        imgBase64 = canvas.toDataURL('image/jpeg', 0.7);
-        document.getElementById('imgPreview').src = imgBase64;
-        document.getElementById('imgPreview').style.display = 'block';
-        document.getElementById('imgLabel').style.display = 'none';
-        document.getElementById('fImgUrl').value = '';
+        const MAX=400; let w=img.width,h=img.height;
+        if(w>h){if(w>MAX){h=h*MAX/w;w=MAX;}}else{if(h>MAX){w=w*MAX/h;h=MAX;}}
+        canvas.width=w;canvas.height=h;
+        canvas.getContext('2d').drawImage(img,0,0,w,h);
+        gameImgBase64 = canvas.toDataURL('image/jpeg',0.7);
+        document.getElementById('gameImgPreview').src=gameImgBase64;
+        document.getElementById('gameImgPreview').style.display='block';
+        document.getElementById('gameImgLabel').style.display='none';
+        document.getElementById('fImgUrl').value='';
       };
-      img.src = ev.target.result;
+      img.src=ev.target.result;
     };
     reader.readAsDataURL(file);
   }
-
-  function previewImgUrl(){
-    const url = document.getElementById('fImgUrl').value.trim();
-    if(!url){ document.getElementById('imgPreview').style.display='none'; document.getElementById('imgLabel').style.display='flex'; imgBase64=null; return; }
-    document.getElementById('imgPreview').src = url;
-    document.getElementById('imgPreview').style.display = 'block';
-    document.getElementById('imgLabel').style.display = 'none';
-    imgBase64 = null;
+  function previewGameImgUrl(){
+    const url=document.getElementById('fImgUrl').value.trim();
+    if(!url){document.getElementById('gameImgPreview').style.display='none';document.getElementById('gameImgLabel').style.display='flex';gameImgBase64=null;return;}
+    document.getElementById('gameImgPreview').src=url;
+    document.getElementById('gameImgPreview').style.display='block';
+    document.getElementById('gameImgLabel').style.display='none';
+    gameImgBase64=null;
   }
 
   async function saveGame(){
-    const title = document.getElementById('fTitle').value.trim();
-    const desc  = document.getElementById('fDesc').value.trim();
-    const link  = document.getElementById('fLink').value.trim();
-    const imgUrl = document.getElementById('fImgUrl').value.trim();
-    const image = imgBase64 || imgUrl || '';
-
-    if(!title){ showToast('Judul game wajib diisi!', 'err'); document.getElementById('fTitle').focus(); return; }
-
-    const btn = document.getElementById('finishBtn');
-    btn.disabled = true;
-    btn.textContent = 'Menyimpan...';
-
+    const title=document.getElementById('fTitle').value.trim();
+    const desc=document.getElementById('fDesc').value.trim();
+    const link=document.getElementById('fLink').value.trim();
+    const imgUrl=document.getElementById('fImgUrl').value.trim();
+    const image=gameImgBase64||imgUrl||'';
+    if(!title){showToast('Judul wajib diisi!','err');return;}
+    const btn=document.getElementById('gameFinishBtn');
+    btn.disabled=true;btn.textContent='Menyimpan...';
     try {
-      const id = 'g' + Date.now();
-      const result = await apiGet({ action:'add', id, title, desc, link, image });
-      if(result.status === 'ok'){
-        await loadGames();
-        hideForm();
-        showToast('Game berhasil ditambahkan!', 'ok');
-      } else {
-        showToast('Gagal menyimpan!', 'err');
-      }
-    } catch(e){
-      showToast('Error: ' + e.message, 'err');
-    }
+      const id='g'+Date.now();
+      const res=await apiGet({action:'add',id,title,desc,link,image});
+      if(res.status==='ok'){await loadGames();hideGameForm();showToast('Game berhasil ditambahkan!','ok');}
+      else{showToast('Gagal menyimpan!','err');}
+    }catch(e){showToast('Error: '+e.message,'err');}
+    btn.disabled=false;btn.textContent='Simpan';
+  }
 
-    btn.disabled = false;
-    btn.textContent = 'Finish';
+  // ===== ABOUT FORM =====
+  function showAboutForm(){
+    closeSidebar();
+    document.getElementById('idleMsg').style.display='none';
+    document.getElementById('gameFormWrap').classList.remove('show');
+    document.getElementById('aboutFormWrap').classList.add('show');
+    aboutImgBase64=null;
+    loadAboutForm();
+  }
+  function hideAboutForm(){
+    document.getElementById('aboutFormWrap').classList.remove('show');
+    document.getElementById('idleMsg').style.display='flex';
+  }
+
+  function previewAboutImgFile(e){
+    const file=e.target.files[0];if(!file)return;
+    const reader=new FileReader();
+    reader.onload=ev=>{
+      const img=new Image();
+      img.onload=()=>{
+        const canvas=document.createElement('canvas');
+        const MAX=300;let w=img.width,h=img.height;
+        if(w>h){if(w>MAX){h=h*MAX/w;w=MAX;}}else{if(h>MAX){w=w*MAX/h;h=MAX;}}
+        canvas.width=w;canvas.height=h;
+        canvas.getContext('2d').drawImage(img,0,0,w,h);
+        aboutImgBase64=canvas.toDataURL('image/jpeg',0.8);
+        document.getElementById('aboutImgPreview').src=aboutImgBase64;
+        document.getElementById('aboutImgPreview').style.display='block';
+        document.getElementById('aboutImgLabel').style.display='none';
+        document.getElementById('aImgUrl').value='';
+      };
+      img.src=ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+  function previewAboutImgUrl(){
+    const url=document.getElementById('aImgUrl').value.trim();
+    if(!url){document.getElementById('aboutImgPreview').style.display='none';document.getElementById('aboutImgLabel').style.display='flex';aboutImgBase64=null;return;}
+    document.getElementById('aboutImgPreview').src=url;
+    document.getElementById('aboutImgPreview').style.display='block';
+    document.getElementById('aboutImgLabel').style.display='none';
+    aboutImgBase64=null;
+  }
+
+  async function saveAbout(){
+    const btn=document.getElementById('aboutFinishBtn');
+    btn.disabled=true;btn.textContent='Menyimpan...';
+    const imgUrl=document.getElementById('aImgUrl').value.trim();
+    const image=aboutImgBase64||imgUrl||'';
+    const updates=[
+      {key:'appname',value:document.getElementById('aName').value.trim()},
+      {key:'version',value:document.getElementById('aVersion').value.trim()},
+      {key:'tagline',value:document.getElementById('aTagline').value.trim()},
+      {key:'credit',value:document.getElementById('aCredit').value.trim()},
+      {key:'desc',value:document.getElementById('aDesc').value.trim()},
+      {key:'image',value:image},
+    ];
+    try {
+      const res=await apiGet({action:'setAbout',sheet:'about',data:JSON.stringify(updates)});
+      if(res.status==='ok'){showToast('Tentang Kami berhasil disimpan!','ok');}
+      else{showToast('Gagal menyimpan!','err');}
+    }catch(e){showToast('Error: '+e.message,'err');}
+    btn.disabled=false;btn.textContent='Simpan';
   }
 
   // ===== DELETE =====
-  function askDelete(id, title){
-    deleteTarget = id;
-    document.getElementById('confirmMsg').textContent = `Yakin hapus "${title}"?`;
+  function askDelete(id,title){
+    deleteTarget=id;
+    document.getElementById('confirmMsg').textContent=`Yakin hapus "${title}"?`;
     document.getElementById('confirmOverlay').classList.add('show');
   }
-  function hideConfirm(){
-    document.getElementById('confirmOverlay').classList.remove('show');
-    deleteTarget = null;
-  }
+  function hideConfirm(){document.getElementById('confirmOverlay').classList.remove('show');deleteTarget=null;}
   async function confirmDelete(){
-    if(!deleteTarget) return;
+    if(!deleteTarget)return;
     hideConfirm();
     try {
-      const result = await apiGet({ action:'delete', id: deleteTarget });
-      if(result.status === 'ok'){
-        await loadGames();
-        showToast('Game dihapus.', 'ok');
-      } else {
-        showToast('Gagal menghapus!', 'err');
-      }
-    } catch(e){
-      showToast('Error: ' + e.message, 'err');
-    }
+      const res=await apiGet({action:'delete',id:deleteTarget});
+      if(res.status==='ok'){await loadGames();showToast('Game dihapus.','ok');}
+      else{showToast('Gagal menghapus!','err');}
+    }catch(e){showToast('Error: '+e.message,'err');}
   }
 
   // ===== TOAST =====
-  function showToast(msg, type='ok'){
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.className = `toast ${type} show`;
-    setTimeout(()=>{ t.classList.remove('show'); }, 3000);
+  function showToast(msg,type='ok'){
+    const t=document.getElementById('toast');
+    t.textContent=msg;t.className=`toast ${type} show`;
+    setTimeout(()=>t.classList.remove('show'),3000);
+  }
+
+  // ===== SIDEBAR MOBILE =====
+  function toggleSidebar(){
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebarOverlay').classList.toggle('show');
+  }
+  function closeSidebar(){
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('show');
   }
 
   loadGames();

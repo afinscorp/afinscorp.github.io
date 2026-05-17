@@ -9,10 +9,19 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   :root{--bg:#02181f;--sidebar:#021a22;--card:#042530;--cyan:#00d4e8;--cyan2:#00b8c8;--text:#c8f0f5;--muted:#5a9aaa;}
   body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
-  header{background:linear-gradient(90deg,#021f28,#043a48);padding:14px 24px;text-align:center;border-bottom:2px solid var(--cyan);flex-shrink:0;}
-  header h1{font-family:'Cinzel',serif;font-size:1.4rem;color:var(--cyan);letter-spacing:2px;font-style:italic;}
-  .main{display:flex;flex:1;overflow:hidden;}
-  .sidebar{width:220px;background:var(--sidebar);border-right:1px solid #0a3a45;display:flex;flex-direction:column;flex-shrink:0;}
+
+  /* HEADER */
+  header{background:linear-gradient(90deg,#021f28,#043a48);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--cyan);flex-shrink:0;}
+  header h1{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--cyan);letter-spacing:2px;font-style:italic;flex:1;text-align:center;}
+  .about-btn{background:none;border:1.5px solid var(--cyan);color:var(--cyan);padding:6px 12px;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.85rem;white-space:nowrap;transition:all 0.2s;}
+  .about-btn:hover{background:var(--cyan);color:#021820;}
+  .menu-btn{background:none;border:none;color:var(--cyan);cursor:pointer;padding:4px;display:none;}
+
+  /* LAYOUT */
+  .main{display:flex;flex:1;overflow:hidden;position:relative;}
+
+  /* SIDEBAR */
+  .sidebar{width:220px;background:var(--sidebar);border-right:1px solid #0a3a45;display:flex;flex-direction:column;flex-shrink:0;transition:transform 0.3s;}
   .search-box{padding:12px;border-bottom:1px solid #0a3a45;}
   .search-wrap{position:relative;}
   .search-wrap input{width:100%;background:#021820;border:1.5px solid var(--cyan);color:var(--text);padding:8px 36px 8px 12px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:0.95rem;outline:none;}
@@ -25,49 +34,75 @@
   .game-btn:hover{border-color:var(--cyan);background:#042d3a;color:var(--cyan);}
   .game-btn.active{background:var(--cyan);color:#021820;font-weight:600;border-color:var(--cyan);}
   .empty-list{color:var(--muted);font-size:0.85rem;text-align:center;padding:20px 10px;}
-  .sidebar-footer{padding:12px;border-top:1px solid #0a3a45;}
-  .admin-btn{width:100%;background:#021e28;border:1.5px solid #0a4a58;color:var(--muted);padding:10px;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.9rem;display:flex;align-items:center;gap:8px;transition:all 0.2s;}
-  .admin-btn:hover{border-color:var(--cyan);color:var(--cyan);}
+
+  /* CONTENT */
   .content{flex:1;padding:24px;display:flex;flex-direction:column;overflow:hidden;}
   .preview-box{background:var(--card);border:1.5px solid #0a4a58;border-radius:8px;width:100%;aspect-ratio:16/9;max-height:260px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
   .preview-box img{width:100%;height:100%;object-fit:cover;border-radius:6px;}
   .preview-placeholder{color:var(--muted);font-size:0.9rem;}
-  .desc-area{margin-top:16px;flex:1;}
+  .desc-area{margin-top:16px;flex:1;overflow-y:auto;}
   .desc-area h3{color:var(--cyan);font-size:0.85rem;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase;}
   .desc-area p{color:var(--text);font-size:1rem;line-height:1.6;opacity:0.85;}
   .link-btn-wrap{display:flex;justify-content:flex-end;margin-top:12px;}
   .link-game-btn{background:var(--cyan);color:#021820;border:none;padding:10px 22px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;letter-spacing:1px;}
   .link-game-btn.hidden{display:none;}
-  .no-select{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:1rem;}
-  .overlay{position:fixed;inset:0;background:rgba(2,15,20,0.96);display:none;align-items:center;justify-content:center;z-index:999;}
+  .no-select{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:1rem;text-align:center;}
+
+  /* OVERLAY BACKDROP */
+  .overlay{position:fixed;inset:0;background:rgba(2,15,20,0.92);display:none;align-items:center;justify-content:center;z-index:999;padding:16px;}
   .overlay.show{display:flex;}
-  .pass-box{background:var(--card);border:2px solid var(--cyan);border-radius:10px;padding:40px 32px;width:340px;text-align:center;}
-  .pass-box h2{font-family:'Cinzel',serif;color:var(--cyan);margin-bottom:24px;font-size:1.2rem;letter-spacing:2px;}
-  .pass-row{display:flex;}
-  .pass-row input{flex:1;background:#021820;border:1.5px solid var(--cyan);border-right:none;color:var(--text);padding:10px 14px;font-family:'Rajdhani',sans-serif;font-size:1rem;outline:none;border-radius:6px 0 0 6px;}
-  .pass-row button{background:var(--cyan);color:#021820;border:none;padding:10px 18px;font-family:'Rajdhani',sans-serif;font-weight:700;cursor:pointer;border-radius:0 6px 6px 0;}
-  .pass-error{color:#ff6b6b;font-size:0.85rem;margin-top:10px;min-height:18px;}
-  .pass-cancel{margin-top:14px;background:none;border:none;color:var(--muted);cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.9rem;}
+
+  /* ABOUT MODAL */
+  .about-box{background:var(--card);border:2px solid var(--cyan);border-radius:12px;width:100%;max-width:380px;overflow:hidden;}
+  .about-header{background:linear-gradient(135deg,#021f28,#043a48);padding:24px;text-align:center;border-bottom:1px solid #0a4a58;}
+  .about-img{width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid var(--cyan);margin-bottom:12px;}
+  .about-img-placeholder{width:90px;height:90px;border-radius:50%;background:#042530;border:3px solid var(--cyan);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;}
+  .about-appname{font-family:'Cinzel',serif;color:var(--cyan);font-size:1.2rem;letter-spacing:2px;}
+  .about-version{color:var(--muted);font-size:0.8rem;margin-top:4px;}
+  .about-body{padding:20px;}
+  .about-row{display:flex;flex-direction:column;gap:4px;margin-bottom:14px;}
+  .about-label{color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;}
+  .about-val{color:var(--text);font-size:0.95rem;}
+  .about-close{width:100%;background:var(--cyan);color:#021820;border:none;padding:10px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;border-radius:0 0 10px 10px;}
+
+  /* SIDEBAR OVERLAY (mobile) */
+  .sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:98;display:none;}
+  .sidebar-overlay.show{display:block;}
+
+  /* RESPONSIVE */
+  @media(max-width:640px){
+    .menu-btn{display:block;}
+    .sidebar{position:fixed;left:0;top:0;bottom:0;z-index:99;transform:translateX(-100%);}
+    .sidebar.open{transform:translateX(0);}
+    .content{padding:16px;}
+    header h1{font-size:1rem;}
+    .preview-box{max-height:200px;}
+    .about-btn{font-size:0.8rem;padding:5px 10px;}
+  }
 </style>
 </head>
 <body>
-<header><h1>Mamana AF</h1></header>
+<header>
+  <button class="menu-btn" onclick="toggleSidebar()" title="Menu">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <h1 id="appName">Mamana AF</h1>
+  <button class="about-btn" onclick="showAbout()">Tentang Kami</button>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
 <div class="main">
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <div class="search-box">
       <div class="search-wrap">
-        <input type="text" id="searchInput" placeholder="Cari game..." oninput="filterGames()"/>
+        <input type="text" id="searchInput" placeholder="Cari game..." oninput="renderList()"/>
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </div>
     </div>
     <div class="game-list" id="gameList"><div class="empty-list">Memuat...</div></div>
-    <div class="sidebar-footer">
-      <button class="admin-btn" onclick="showPassOverlay()">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5S14.7 2 12 2 7 4.3 7 7s2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg>
-        Admin mode
-      </button>
-    </div>
   </div>
+
   <div class="content">
     <div class="no-select" id="noSelect">← Pilih game untuk melihat detail</div>
     <div id="gameDetail" style="display:none;flex-direction:column;height:100%;">
@@ -83,87 +118,124 @@
   </div>
 </div>
 
-<div class="overlay" id="passOverlay">
-  <div class="pass-box">
-    <h2>Password</h2>
-    <div class="pass-row">
-      <input type="password" id="passInput" placeholder="Masukkan password..." onkeydown="if(event.key==='Enter')checkPass()"/>
-      <button onclick="checkPass()">Masuk</button>
+<!-- ABOUT MODAL -->
+<div class="overlay" id="aboutOverlay" onclick="if(event.target===this)hideAbout()">
+  <div class="about-box">
+    <div class="about-header">
+      <div id="aboutImgWrap">
+        <div class="about-img-placeholder">
+          <svg width="40" height="40" fill="none" stroke="var(--cyan)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5S14.7 2 12 2 7 4.3 7 7s2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg>
+        </div>
+      </div>
+      <div class="about-appname" id="aboutAppName">Mamana AF</div>
+      <div class="about-version" id="aboutVersion">Versi 1.0.0</div>
     </div>
-    <div class="pass-error" id="passError"></div>
-    <button class="pass-cancel" onclick="document.getElementById('passOverlay').classList.remove('show')">Batal</button>
+    <div class="about-body">
+      <div class="about-row">
+        <span class="about-label">Tagline</span>
+        <span class="about-val" id="aboutTagline">-</span>
+      </div>
+      <div class="about-row">
+        <span class="about-label">Pembuat</span>
+        <span class="about-val" id="aboutCredit">-</span>
+      </div>
+      <div class="about-row">
+        <span class="about-label">Deskripsi</span>
+        <span class="about-val" id="aboutDesc">-</span>
+      </div>
+    </div>
+    <button class="about-close" onclick="hideAbout()">Tutup</button>
   </div>
 </div>
 
 <script>
-  const API = 'https://script.google.com/macros/s/AKfycbz9DZDFtgwn2jqv2-pj-udbiTHt34amyiGjw03Peig7TAiDfdN1Yd-nqyeK8oH8BdCumg/exec';
+  const API = 'https://script.google.com/macros/s/AKfycbwG9GrCXKtpobyzhFkSkR3OI-ShknOKxR1kwm-djp3jJzeE2YFt5rquJ3TBeo1_MSjWKg/exec';
   const PASS_HASH = '752fdf2b4c7f92170035914870aaedab927bf9f8dddc448f3089f1e2f03e8b68';
   let games = [];
   let selectedId = null;
+  let aboutData = {};
 
+  async function apiGet(params){
+    const url = API + '?' + new URLSearchParams({...params, t: Date.now()});
+    const res = await fetch(url);
+    return res.json();
+  }
+
+  // LOAD GAMES
   async function loadGames(){
     try {
-      const res = await fetch(API + '?t=' + Date.now());
-      const data = await res.json();
+      const data = await apiGet({});
       games = Array.isArray(data) ? data : [];
     } catch(e){ games = []; }
     renderList();
+  }
+
+  // LOAD ABOUT
+  async function loadAbout(){
+    try {
+      aboutData = await apiGet({sheet:'about'});
+      if(aboutData.appname) document.getElementById('appName').textContent = aboutData.appname;
+    } catch(e){}
   }
 
   function renderList(){
     const q = document.getElementById('searchInput').value.toLowerCase();
     const list = games.filter(g => g.title.toLowerCase().includes(q));
     const el = document.getElementById('gameList');
-    if(list.length === 0){ el.innerHTML='<div class="empty-list">Belum ada game</div>'; return; }
+    if(list.length===0){el.innerHTML='<div class="empty-list">Belum ada game</div>';return;}
     el.innerHTML = list.map(g =>
       `<button class="game-btn ${selectedId===g.id?'active':''}" onclick="selectGame('${g.id}')">${g.title}</button>`
     ).join('');
   }
 
-  function filterGames(){ renderList(); }
-
   function selectGame(id){
     selectedId = id;
-    const g = games.find(x => x.id === id);
+    const g = games.find(x=>x.id===id);
     if(!g) return;
-    document.getElementById('noSelect').style.display = 'none';
-    const detail = document.getElementById('gameDetail');
-    detail.style.display = 'flex';
+    closeSidebar();
+    document.getElementById('noSelect').style.display='none';
+    document.getElementById('gameDetail').style.display='flex';
     document.getElementById('previewBox').innerHTML = g.image
       ? `<img src="${g.image}" alt="${g.title}"/>`
       : '<span class="preview-placeholder">Tidak ada gambar</span>';
     document.getElementById('gameDesc').textContent = g.desc || '-';
     const lb = document.getElementById('linkBtn');
-    if(g.link){ lb.href = g.link; lb.classList.remove('hidden'); }
-    else { lb.classList.add('hidden'); }
+    if(g.link){lb.href=g.link;lb.classList.remove('hidden');}
+    else{lb.classList.add('hidden');}
     renderList();
   }
 
-  async function hashPass(str){
-    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-    return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-  }
-
-  function showPassOverlay(){
-    document.getElementById('passOverlay').classList.add('show');
-    document.getElementById('passInput').value = '';
-    document.getElementById('passError').textContent = '';
-    document.getElementById('passInput').focus();
-  }
-
-  async function checkPass(){
-    const h = await hashPass(document.getElementById('passInput').value);
-    if(h === PASS_HASH){
-      window.location.href = 'admin.html';
+  // ABOUT MODAL
+  function showAbout(){
+    document.getElementById('aboutAppName').textContent = aboutData.appname || 'Mamana AF';
+    document.getElementById('aboutVersion').textContent = 'Versi ' + (aboutData.version || '1.0.0');
+    document.getElementById('aboutTagline').textContent = aboutData.tagline || '-';
+    document.getElementById('aboutCredit').textContent = aboutData.credit || '-';
+    document.getElementById('aboutDesc').textContent = aboutData.desc || '-';
+    const imgWrap = document.getElementById('aboutImgWrap');
+    if(aboutData.image){
+      imgWrap.innerHTML = `<img src="${aboutData.image}" class="about-img" alt="profile"/>`;
     } else {
-      document.getElementById('passError').textContent = 'Password salah!';
-      document.getElementById('passInput').value = '';
+      imgWrap.innerHTML = `<div class="about-img-placeholder"><svg width="40" height="40" fill="none" stroke="var(--cyan)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5S14.7 2 12 2 7 4.3 7 7s2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg></div>`;
     }
+    document.getElementById('aboutOverlay').classList.add('show');
+  }
+  function hideAbout(){ document.getElementById('aboutOverlay').classList.remove('show'); }
+
+  // SIDEBAR MOBILE
+  function toggleSidebar(){
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebarOverlay').classList.toggle('show');
+  }
+  function closeSidebar(){
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('show');
   }
 
-  // Auto refresh tiap 10 detik
+  // AUTO REFRESH
   setInterval(loadGames, 10000);
   loadGames();
+  loadAbout();
 </script>
 </body>
 </html>
