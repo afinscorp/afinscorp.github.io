@@ -134,7 +134,7 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyVFFrIfqCt1Ggk0FDn5vdvjPM_tY5VssQBDQXsBzBuiAdcfWeIqDvCT7I4iqNOk3JXrA/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxyHqtLh4pXwASpmanzx-3XUu-1YBqaDezCBv_yHHD97RJdz2_4YFQfSfeIMmfChNbRGQ/exec';
   let games = [];
   let deleteTarget = null;
   let imgBase64 = null;
@@ -218,10 +218,7 @@
 
     try {
       const id = 'g_' + Date.now();
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify({ action:'add', id, title, desc, link, image: imgBase64||'' })
-      });
+      await postData({ action:'add', id, title, desc, link, image: imgBase64||'' });
       await loadGames();
       hideForm();
       showToast('Game berhasil ditambahkan!');
@@ -248,10 +245,7 @@
     hideConfirm();
     setLoading(true);
     try {
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify({ action:'delete', id: deleteTarget })
-      });
+      await postData({ action:'delete', id: deleteTarget });
       await loadGames();
       showToast('Game dihapus.');
     } catch(e){
@@ -265,6 +259,37 @@
     t.textContent = msg;
     t.classList.add('show');
     setTimeout(()=>t.classList.remove('show'), 2500);
+  }
+
+  // Helper POST pakai no-cors (Apps Script workaround)
+  function postData(payload){
+    return new Promise((resolve) => {
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = SCRIPT_URL;
+      form.target = 'hidden_iframe';
+      form.style.display = 'none';
+
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'payload';
+      input.value = JSON.stringify(payload);
+      form.appendChild(input);
+
+      let iframe = document.getElementById('hidden_iframe');
+      if(!iframe){
+        iframe = document.createElement('iframe');
+        iframe.name = 'hidden_iframe';
+        iframe.id = 'hidden_iframe';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+      }
+
+      iframe.onload = () => { setTimeout(resolve, 500); };
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+    });
   }
 
   loadGames();
