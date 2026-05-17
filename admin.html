@@ -21,20 +21,17 @@
   .game-list{flex:1;overflow-y:auto;padding:8px;}
   .game-list::-webkit-scrollbar{width:4px;}
   .game-list::-webkit-scrollbar-thumb{background:var(--cyan2);border-radius:4px;}
-  .game-item{width:100%;background:#021e28;border:1.5px solid #0a4a58;color:var(--text);padding:10px;margin-bottom:6px;border-radius:6px;display:flex;align-items:center;justify-content:space-between;transition:border-color 0.2s;}
-  .game-item:hover{border-color:var(--cyan);}
+  .game-item{width:100%;background:#021e28;border:1.5px solid #0a4a58;color:var(--text);padding:10px;margin-bottom:6px;border-radius:6px;display:flex;align-items:center;justify-content:space-between;}
   .game-item span{font-size:0.9rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-  .del-btn{background:none;border:none;color:var(--muted);cursor:pointer;padding:2px 4px;border-radius:4px;transition:color 0.2s;flex-shrink:0;}
+  .del-btn{background:none;border:none;color:var(--muted);cursor:pointer;padding:2px 4px;flex-shrink:0;}
   .del-btn:hover{color:var(--danger);}
   .add-wrap{padding:10px;}
-  .add-btn{width:100%;background:var(--cyan);color:#021820;border:none;padding:10px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;cursor:pointer;transition:background 0.2s;}
+  .add-btn{width:100%;background:var(--cyan);color:#021820;border:none;padding:10px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;cursor:pointer;}
   .add-btn:hover{background:var(--cyan2);}
   .sidebar-footer{padding:12px;border-top:1px solid #0a3a45;}
   .logout-btn{width:100%;background:#021e28;border:1.5px solid #0a4a58;color:var(--muted);padding:10px;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.9rem;display:flex;align-items:center;gap:8px;transition:all 0.2s;}
   .logout-btn:hover{border-color:var(--danger);color:var(--danger);}
   .content{flex:1;padding:24px;overflow-y:auto;}
-  .content::-webkit-scrollbar{width:4px;}
-  .content::-webkit-scrollbar-thumb{background:var(--cyan2);border-radius:4px;}
   .idle-msg{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);}
   .form-wrap{display:none;}
   .form-wrap.show{display:block;}
@@ -44,18 +41,18 @@
   .form-input{background:#021820;border:1.5px solid #0a4a58;color:var(--text);padding:12px 16px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1rem;outline:none;transition:border-color 0.2s;}
   .form-input:focus{border-color:var(--cyan);}
   .form-input::placeholder{color:var(--muted);}
-  .img-upload{background:#021820;border:1.5px dashed #0a4a58;border-radius:6px;height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:border-color 0.2s;overflow:hidden;position:relative;}
+  .img-upload{background:#021820;border:1.5px dashed #0a4a58;border-radius:6px;height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;position:relative;transition:border-color 0.2s;}
   .img-upload:hover{border-color:var(--cyan);}
   .img-upload img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
-  .img-label{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:0.85rem;z-index:1;}
-  .form-actions{display:flex;justify-content:flex-end;margin-top:20px;}
-  .finish-btn{background:var(--cyan);color:#021820;border:none;padding:10px 28px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:1px;transition:background 0.2s;}
-  .finish-btn:hover{background:var(--cyan2);}
+  .img-label{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:0.85rem;z-index:1;text-align:center;}
+  .form-actions{display:flex;justify-content:flex-end;margin-top:20px;gap:10px;}
+  .finish-btn{background:var(--cyan);color:#021820;border:none;padding:10px 28px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;}
   .finish-btn:disabled{opacity:0.5;cursor:not-allowed;}
-  .cancel-form-btn{background:none;border:1.5px solid #0a4a58;color:var(--muted);padding:10px 20px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1rem;cursor:pointer;margin-right:10px;transition:all 0.2s;}
-  .cancel-form-btn:hover{border-color:var(--danger);color:var(--danger);}
-  .loading-bar{height:3px;background:var(--cyan);width:0%;transition:width 0.4s;position:fixed;top:0;left:0;z-index:9999;}
-  .toast{position:fixed;bottom:24px;right:24px;background:var(--cyan);color:#021820;padding:10px 20px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:0.95rem;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:9999;}
+  .cancel-btn{background:none;border:1.5px solid #0a4a58;color:var(--muted);padding:10px 20px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1rem;cursor:pointer;}
+  .cancel-btn:hover{border-color:var(--danger);color:var(--danger);}
+  .toast{position:fixed;bottom:24px;right:24px;padding:10px 20px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:0.95rem;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:9999;}
+  .toast.ok{background:var(--cyan);color:#021820;}
+  .toast.err{background:var(--danger);color:#fff;}
   .toast.show{opacity:1;}
   .overlay{position:fixed;inset:0;background:rgba(2,15,20,0.9);display:none;align-items:center;justify-content:center;z-index:999;}
   .overlay.show{display:flex;}
@@ -68,17 +65,16 @@
 </style>
 </head>
 <body>
-<div class="loading-bar" id="loadingBar"></div>
 <header><h1>Mamana AF (Admin)</h1></header>
 <div class="main">
   <div class="sidebar">
     <div class="search-box">
       <div class="search-wrap">
-        <input type="text" id="searchInput" placeholder="Cari game..." oninput="filterGames()"/>
+        <input type="text" id="searchInput" placeholder="Cari game..." oninput="renderList()"/>
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </div>
     </div>
-    <div class="game-list" id="gameList"><div style="color:var(--muted);font-size:0.85rem;text-align:center;padding:16px;">Memuat...</div></div>
+    <div class="game-list" id="gameList"><div style="color:var(--muted);text-align:center;padding:16px;font-size:0.85rem;">Memuat...</div></div>
     <div class="add-wrap">
       <button class="add-btn" onclick="showForm()">+</button>
     </div>
@@ -90,7 +86,7 @@
     </div>
   </div>
 
-  <div class="content" id="mainContent">
+  <div class="content">
     <div class="idle-msg" id="idleMsg">Klik <b style="color:var(--cyan);margin:0 4px">+</b> untuk menambah game baru</div>
     <div class="form-wrap" id="formWrap">
       <div class="form-title">Link Game Baru</div>
@@ -98,28 +94,28 @@
         <div class="form-left">
           <input class="form-input" type="text" id="fTitle" placeholder="Judul game"/>
           <input class="form-input" type="text" id="fDesc" placeholder="Diskripsi"/>
-          <input class="form-input" type="text" id="fLink" placeholder="Link game"/>
+          <input class="form-input" type="text" id="fLink" placeholder="Link game (https://...)"/>
+          <input class="form-input" type="text" id="fImgUrl" placeholder="URL gambar (https://...)" oninput="previewImgUrl()"/>
         </div>
         <div>
           <div class="img-upload" id="imgUpload" onclick="document.getElementById('fImg').click()">
             <img id="imgPreview" src="" style="display:none;"/>
             <div class="img-label" id="imgLabel">
               <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Klik untuk pilih gambar
+              Klik upload gambar<br/>atau isi URL di bawah
             </div>
-            <input type="file" id="fImg" accept="image/*" style="display:none;" onchange="previewImg(event)"/>
+            <input type="file" id="fImg" accept="image/*" style="display:none;" onchange="previewImgFile(event)"/>
           </div>
         </div>
       </div>
       <div class="form-actions">
-        <button class="cancel-form-btn" onclick="hideForm()">Batal</button>
+        <button class="cancel-btn" onclick="hideForm()">Batal</button>
         <button class="finish-btn" id="finishBtn" onclick="saveGame()">Finish</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CONFIRM DELETE -->
 <div class="overlay" id="confirmOverlay">
   <div class="confirm-box">
     <h3>Hapus Game</h3>
@@ -130,107 +126,137 @@
     </div>
   </div>
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz9DZDFtgwn2jqv2-pj-udbiTHt34amyiGjw03Peig7TAiDfdN1Yd-nqyeK8oH8BdCumg/exec';
+  const API = 'https://script.google.com/macros/s/AKfycbz9DZDFtgwn2jqv2-pj-udbiTHt34amyiGjw03Peig7TAiDfdN1Yd-nqyeK8oH8BdCumg/exec';
   let games = [];
   let deleteTarget = null;
   let imgBase64 = null;
 
+  // ===== API CALLS =====
+  async function apiGet(params){
+    const url = API + '?' + new URLSearchParams({...params, t: Date.now()}).toString();
+    const res = await fetch(url);
+    return res.json();
+  }
+
   async function loadGames(){
-    setLoading(true);
     try {
-      const res = await fetch(SCRIPT_URL + '?t=' + Date.now());
-      const data = await res.json();
+      const data = await apiGet({});
       games = Array.isArray(data) ? data : [];
     } catch(e){ games = []; }
-    setLoading(false);
-    renderList(games);
+    renderList();
   }
 
-  function setLoading(on){
-    const bar = document.getElementById('loadingBar');
-    bar.style.width = on ? '70%' : '100%';
-    if(!on) setTimeout(()=>{ bar.style.width='0%'; }, 400);
-  }
-
-  function renderList(list){
+  // ===== RENDER =====
+  function renderList(){
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    const list = games.filter(g => g.title.toLowerCase().includes(q));
     const el = document.getElementById('gameList');
-    if(list.length===0){ el.innerHTML='<div style="color:var(--muted);font-size:0.85rem;text-align:center;padding:16px;">Belum ada game</div>'; return; }
-    el.innerHTML = list.map(g=>`
+    if(list.length === 0){
+      el.innerHTML = '<div style="color:var(--muted);text-align:center;padding:16px;font-size:0.85rem;">Belum ada game</div>';
+      return;
+    }
+    el.innerHTML = list.map(g => `
       <div class="game-item">
-        <span>${g.title}</span>
-        <button class="del-btn" onclick="askDelete('${g.id}','${g.title.replace(/'/g,"&#39;")}')" title="Hapus">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+        <span title="${g.title}">${g.title}</span>
+        <button class="del-btn" onclick="askDelete('${g.id}','${g.title.replace(/'/g,'&apos;')}')" title="Hapus">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/>
+            <path d="M10 11v6M14 11v6M9 6V4h6v2"/>
+          </svg>
         </button>
       </div>
     `).join('');
   }
 
-  function filterGames(){
-    const q = document.getElementById('searchInput').value.toLowerCase();
-    renderList(games.filter(g=>g.title.toLowerCase().includes(q)));
-  }
-
+  // ===== FORM =====
   function showForm(){
-    document.getElementById('idleMsg').style.display='none';
+    document.getElementById('idleMsg').style.display = 'none';
     document.getElementById('formWrap').classList.add('show');
-    document.getElementById('fTitle').value='';
-    document.getElementById('fDesc').value='';
-    document.getElementById('fLink').value='';
-    document.getElementById('fImg').value='';
-    document.getElementById('imgPreview').style.display='none';
-    document.getElementById('imgLabel').style.display='flex';
-    imgBase64=null;
+    document.getElementById('fTitle').value = '';
+    document.getElementById('fDesc').value = '';
+    document.getElementById('fLink').value = '';
+    document.getElementById('fImgUrl').value = '';
+    document.getElementById('fImg').value = '';
+    document.getElementById('imgPreview').style.display = 'none';
+    document.getElementById('imgLabel').style.display = 'flex';
+    imgBase64 = null;
     document.getElementById('fTitle').focus();
   }
 
   function hideForm(){
     document.getElementById('formWrap').classList.remove('show');
-    document.getElementById('idleMsg').style.display='flex';
+    document.getElementById('idleMsg').style.display = 'flex';
   }
 
-  function previewImg(e){
+  function previewImgFile(e){
     const file = e.target.files[0];
     if(!file) return;
+    // Resize dulu biar tidak terlalu besar
     const reader = new FileReader();
-    reader.onload = ev=>{
-      imgBase64 = ev.target.result;
-      document.getElementById('imgPreview').src = imgBase64;
-      document.getElementById('imgPreview').style.display='block';
-      document.getElementById('imgLabel').style.display='none';
+    reader.onload = ev => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const MAX = 400;
+        let w = img.width, h = img.height;
+        if(w > h){ if(w>MAX){h=h*MAX/w;w=MAX;} } else { if(h>MAX){w=w*MAX/h;h=MAX;} }
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        imgBase64 = canvas.toDataURL('image/jpeg', 0.7);
+        document.getElementById('imgPreview').src = imgBase64;
+        document.getElementById('imgPreview').style.display = 'block';
+        document.getElementById('imgLabel').style.display = 'none';
+        document.getElementById('fImgUrl').value = '';
+      };
+      img.src = ev.target.result;
     };
     reader.readAsDataURL(file);
+  }
+
+  function previewImgUrl(){
+    const url = document.getElementById('fImgUrl').value.trim();
+    if(!url){ document.getElementById('imgPreview').style.display='none'; document.getElementById('imgLabel').style.display='flex'; imgBase64=null; return; }
+    document.getElementById('imgPreview').src = url;
+    document.getElementById('imgPreview').style.display = 'block';
+    document.getElementById('imgLabel').style.display = 'none';
+    imgBase64 = null;
   }
 
   async function saveGame(){
     const title = document.getElementById('fTitle').value.trim();
     const desc  = document.getElementById('fDesc').value.trim();
     const link  = document.getElementById('fLink').value.trim();
-    if(!title){ showToast('Judul game wajib diisi!'); document.getElementById('fTitle').focus(); return; }
+    const imgUrl = document.getElementById('fImgUrl').value.trim();
+    const image = imgBase64 || imgUrl || '';
+
+    if(!title){ showToast('Judul game wajib diisi!', 'err'); document.getElementById('fTitle').focus(); return; }
 
     const btn = document.getElementById('finishBtn');
     btn.disabled = true;
     btn.textContent = 'Menyimpan...';
-    setLoading(true);
 
     try {
-      const id = 'g_' + Date.now();
-      await sendData({ action:'add', id, title, desc, link, image: imgBase64||'' });
-      await loadGames();
-      hideForm();
-      showToast('Game berhasil ditambahkan!');
+      const id = 'g' + Date.now();
+      const result = await apiGet({ action:'add', id, title, desc, link, image });
+      if(result.status === 'ok'){
+        await loadGames();
+        hideForm();
+        showToast('Game berhasil ditambahkan!', 'ok');
+      } else {
+        showToast('Gagal menyimpan!', 'err');
+      }
     } catch(e){
-      showToast('Gagal menyimpan, coba lagi.');
+      showToast('Error: ' + e.message, 'err');
     }
 
     btn.disabled = false;
     btn.textContent = 'Finish';
-    setLoading(false);
   }
 
+  // ===== DELETE =====
   function askDelete(id, title){
     deleteTarget = id;
     document.getElementById('confirmMsg').textContent = `Yakin hapus "${title}"?`;
@@ -243,29 +269,25 @@
   async function confirmDelete(){
     if(!deleteTarget) return;
     hideConfirm();
-    setLoading(true);
     try {
-      await sendData({ action:'delete', id: deleteTarget });
-      await loadGames();
-      showToast('Game dihapus.');
+      const result = await apiGet({ action:'delete', id: deleteTarget });
+      if(result.status === 'ok'){
+        await loadGames();
+        showToast('Game dihapus.', 'ok');
+      } else {
+        showToast('Gagal menghapus!', 'err');
+      }
     } catch(e){
-      showToast('Gagal menghapus, coba lagi.');
+      showToast('Error: ' + e.message, 'err');
     }
-    setLoading(false);
   }
 
-  function showToast(msg){
+  // ===== TOAST =====
+  function showToast(msg, type='ok'){
     const t = document.getElementById('toast');
     t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(()=>t.classList.remove('show'), 2500);
-  }
-
-  // Helper kirim data via GET
-  async function sendData(params){
-    const url = SCRIPT_URL + '?' + new URLSearchParams(params).toString();
-    const res = await fetch(url);
-    return res.json();
+    t.className = `toast ${type} show`;
+    setTimeout(()=>{ t.classList.remove('show'); }, 3000);
   }
 
   loadGames();

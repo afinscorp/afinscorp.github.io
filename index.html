@@ -36,11 +36,9 @@
   .desc-area h3{color:var(--cyan);font-size:0.85rem;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase;}
   .desc-area p{color:var(--text);font-size:1rem;line-height:1.6;opacity:0.85;}
   .link-btn-wrap{display:flex;justify-content:flex-end;margin-top:12px;}
-  .link-game-btn{background:var(--cyan);color:#021820;border:none;padding:10px 22px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;letter-spacing:1px;transition:background 0.2s;}
-  .link-game-btn:hover{background:var(--cyan2);}
+  .link-game-btn{background:var(--cyan);color:#021820;border:none;padding:10px 22px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;letter-spacing:1px;}
   .link-game-btn.hidden{display:none;}
   .no-select{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:1rem;}
-  .loading-bar{height:3px;background:var(--cyan);width:0%;transition:width 0.4s;position:fixed;top:0;left:0;z-index:9999;}
   .overlay{position:fixed;inset:0;background:rgba(2,15,20,0.96);display:none;align-items:center;justify-content:center;z-index:999;}
   .overlay.show{display:flex;}
   .pass-box{background:var(--card);border:2px solid var(--cyan);border-radius:10px;padding:40px 32px;width:340px;text-align:center;}
@@ -50,11 +48,9 @@
   .pass-row button{background:var(--cyan);color:#021820;border:none;padding:10px 18px;font-family:'Rajdhani',sans-serif;font-weight:700;cursor:pointer;border-radius:0 6px 6px 0;}
   .pass-error{color:#ff6b6b;font-size:0.85rem;margin-top:10px;min-height:18px;}
   .pass-cancel{margin-top:14px;background:none;border:none;color:var(--muted);cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.9rem;}
-  .pass-cancel:hover{color:var(--text);}
 </style>
 </head>
 <body>
-<div class="loading-bar" id="loadingBar"></div>
 <header><h1>Mamana AF</h1></header>
 <div class="main">
   <div class="sidebar">
@@ -64,9 +60,9 @@
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </div>
     </div>
-    <div class="game-list" id="gameList"><div class="empty-list">Memuat data...</div></div>
+    <div class="game-list" id="gameList"><div class="empty-list">Memuat...</div></div>
     <div class="sidebar-footer">
-      <button class="admin-btn" onclick="showPasswordOverlay()">
+      <button class="admin-btn" onclick="showPassOverlay()">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5S14.7 2 12 2 7 4.3 7 7s2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/></svg>
         Admin mode
       </button>
@@ -81,7 +77,7 @@
         <p id="gameDesc">-</p>
       </div>
       <div class="link-btn-wrap">
-        <a id="linkGameBtn" class="link-game-btn hidden" href="#" target="_blank">Link game &rarr;</a>
+        <a id="linkBtn" class="link-game-btn hidden" href="#" target="_blank">Link game →</a>
       </div>
     </div>
   </div>
@@ -95,90 +91,77 @@
       <button onclick="checkPass()">Masuk</button>
     </div>
     <div class="pass-error" id="passError"></div>
-    <button class="pass-cancel" onclick="hidePasswordOverlay()">Batal</button>
+    <button class="pass-cancel" onclick="document.getElementById('passOverlay').classList.remove('show')">Batal</button>
   </div>
 </div>
 
 <script>
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz9DZDFtgwn2jqv2-pj-udbiTHt34amyiGjw03Peig7TAiDfdN1Yd-nqyeK8oH8BdCumg/exec';
-  const PASS_HASH  = '752fdf2b4c7f92170035914870aaedab927bf9f8dddc448f3089f1e2f03e8b68';
+  const API = 'https://script.google.com/macros/s/AKfycbz9DZDFtgwn2jqv2-pj-udbiTHt34amyiGjw03Peig7TAiDfdN1Yd-nqyeK8oH8BdCumg/exec';
+  const PASS_HASH = '752fdf2b4c7f92170035914870aaedab927bf9f8dddc448f3089f1e2f03e8b68';
   let games = [];
   let selectedId = null;
 
   async function loadGames(){
-    setLoading(true);
     try {
-      const res = await fetch(SCRIPT_URL + '?t=' + Date.now());
+      const res = await fetch(API + '?t=' + Date.now());
       const data = await res.json();
       games = Array.isArray(data) ? data : [];
     } catch(e){ games = []; }
-    setLoading(false);
-    renderList(games);
+    renderList();
   }
 
-  function setLoading(on){
-    const bar = document.getElementById('loadingBar');
-    bar.style.width = on ? '70%' : '100%';
-    if(!on) setTimeout(()=>{ bar.style.width='0%'; }, 400);
-  }
-
-  function renderList(list){
+  function renderList(){
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    const list = games.filter(g => g.title.toLowerCase().includes(q));
     const el = document.getElementById('gameList');
-    if(list.length===0){ el.innerHTML='<div class="empty-list">Belum ada game</div>'; return; }
-    el.innerHTML = list.map(g=>`
-      <button class="game-btn ${selectedId===g.id?'active':''}" onclick="selectGame('${g.id}')">${g.title}</button>
-    `).join('');
+    if(list.length === 0){ el.innerHTML='<div class="empty-list">Belum ada game</div>'; return; }
+    el.innerHTML = list.map(g =>
+      `<button class="game-btn ${selectedId===g.id?'active':''}" onclick="selectGame('${g.id}')">${g.title}</button>`
+    ).join('');
   }
+
+  function filterGames(){ renderList(); }
 
   function selectGame(id){
     selectedId = id;
-    const g = games.find(x=>x.id===id);
+    const g = games.find(x => x.id === id);
     if(!g) return;
-    document.getElementById('noSelect').style.display='none';
+    document.getElementById('noSelect').style.display = 'none';
     const detail = document.getElementById('gameDetail');
-    detail.style.display='flex';
+    detail.style.display = 'flex';
     document.getElementById('previewBox').innerHTML = g.image
       ? `<img src="${g.image}" alt="${g.title}"/>`
       : '<span class="preview-placeholder">Tidak ada gambar</span>';
     document.getElementById('gameDesc').textContent = g.desc || '-';
-    const lb = document.getElementById('linkGameBtn');
-    if(g.link){ lb.href=g.link; lb.classList.remove('hidden'); }
+    const lb = document.getElementById('linkBtn');
+    if(g.link){ lb.href = g.link; lb.classList.remove('hidden'); }
     else { lb.classList.add('hidden'); }
-    renderList(games);
+    renderList();
   }
 
-  function filterGames(){
-    const q = document.getElementById('searchInput').value.toLowerCase();
-    renderList(games.filter(g=>g.title.toLowerCase().includes(q)));
-  }
-
-  async function hashPassword(str){
+  async function hashPass(str){
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
     return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
   }
-  function showPasswordOverlay(){
+
+  function showPassOverlay(){
     document.getElementById('passOverlay').classList.add('show');
-    document.getElementById('passInput').value='';
-    document.getElementById('passError').textContent='';
+    document.getElementById('passInput').value = '';
+    document.getElementById('passError').textContent = '';
     document.getElementById('passInput').focus();
   }
-  function hidePasswordOverlay(){
-    document.getElementById('passOverlay').classList.remove('show');
-  }
+
   async function checkPass(){
-    const v = document.getElementById('passInput').value;
-    const h = await hashPassword(v);
-    if(h===PASS_HASH){
-      hidePasswordOverlay();
-      window.location.href='admin.html';
+    const h = await hashPass(document.getElementById('passInput').value);
+    if(h === PASS_HASH){
+      window.location.href = 'admin.html';
     } else {
-      document.getElementById('passError').textContent='Password salah!';
-      document.getElementById('passInput').value='';
-      document.getElementById('passInput').focus();
+      document.getElementById('passError').textContent = 'Password salah!';
+      document.getElementById('passInput').value = '';
     }
   }
 
-  // Auto refresh setiap 10 detik
+  // Auto refresh tiap 10 detik
   setInterval(loadGames, 10000);
   loadGames();
 </script>
