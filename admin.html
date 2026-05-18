@@ -215,7 +215,7 @@
 
   async function apiGet(params){
     const url = API + '?' + new URLSearchParams({...params, t: Date.now()});
-    const res = await fetch(url);
+    const res = await fetch(url, {cache: 'no-store'});
     return res.json();
   }
 
@@ -403,19 +403,22 @@
 
   // ===== DELETE =====
   function askDelete(id,title){
-    alert('ID: ' + id + ' | Title: ' + title);
     deleteTarget=id;
     document.getElementById('confirmMsg').textContent=`Yakin hapus "${title}"?`;
     document.getElementById('confirmOverlay').classList.add('show');
   }
   function hideConfirm(){document.getElementById('confirmOverlay').classList.remove('show');deleteTarget=null;}
   async function confirmDelete(){
-    if(!deleteTarget)return;
+    if(!deleteTarget) return;
+    const idToDelete = String(deleteTarget).trim();
     hideConfirm();
     try {
-      const res=await apiGet({action:'delete',id:deleteTarget});
-      if(res.status==='ok'){await loadGames();showToast('Game dihapus.','ok');}
-      else{showToast('Gagal menghapus!','err');}
+      const res = await apiGet({action:'delete', id: idToDelete});
+      if(res.status==='ok'){
+        showToast('Game dihapus.','ok');
+        await new Promise(r => setTimeout(r, 1500));
+        await loadGames();
+      } else { showToast('Gagal menghapus!','err'); }
     }catch(e){showToast('Error: '+e.message,'err');}
   }
 
