@@ -403,6 +403,7 @@
 
   // ===== DELETE =====
   function askDelete(id,title){
+    alert('ID: ' + id + ' | Title: ' + title);
     deleteTarget=id;
     document.getElementById('confirmMsg').textContent=`Yakin hapus "${title}"?`;
     document.getElementById('confirmOverlay').classList.add('show');
