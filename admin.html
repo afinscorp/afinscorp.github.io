@@ -255,9 +255,9 @@
       return;
     }
     el.innerHTML = list.map(g=>`
-      <div class="game-item">
+      <div class="game-item" data-id="${g.id}" data-title="${g.title.replace(/"/g,'&quot;')}">
         <span title="${g.title}">${g.title}</span>
-        <button class="del-btn" data-id="${g.id}" data-title="${g.title.replace(/"/g,'&quot;')}" title="Hapus">
+        <button class="del-btn" title="Hapus">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/>
             <path d="M10 11v6M14 11v6M9 6V4h6v2"/>
@@ -265,10 +265,6 @@
         </button>
       </div>
     `).join('');
-    // Pasang event listener ke semua tombol hapus
-    el.querySelectorAll('.del-btn').forEach(btn => {
-      btn.addEventListener('click', () => askDelete(btn.dataset.id, btn.dataset.title));
-    });
   }
 
   // ===== GAME FORM =====
@@ -438,6 +434,14 @@
     document.getElementById('sidebar').classList.remove('open');
     document.getElementById('sidebarOverlay').classList.remove('show');
   }
+
+  // Event delegation untuk tombol hapus
+  document.getElementById('gameList').addEventListener('click', function(e){
+    const item = e.target.closest('.game-item');
+    if(!item) return;
+    if(!e.target.closest('.del-btn')) return;
+    askDelete(item.dataset.id, item.dataset.title);
+  });
 
   loadGames();
 </script>
