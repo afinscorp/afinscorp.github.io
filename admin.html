@@ -32,6 +32,8 @@
   .game-item span{font-size:0.9rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .del-btn{background:none;border:none;color:var(--muted);cursor:pointer;padding:2px 4px;flex-shrink:0;}
   .del-btn:hover{color:var(--danger);}
+  .edit-btn{background:none;border:none;color:var(--muted);cursor:pointer;padding:2px 4px;flex-shrink:0;}
+  .edit-btn:hover{color:var(--cyan);}
   .sidebar-actions{padding:10px;display:flex;flex-direction:column;gap:8px;border-top:1px solid #0a3a45;}
   .add-btn{width:100%;background:var(--cyan);color:#021820;border:none;padding:10px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;cursor:pointer;}
   .add-btn:hover{background:var(--cyan2);}
@@ -137,7 +139,7 @@
 
     <!-- FORM TAMBAH GAME -->
     <div class="form-wrap" id="gameFormWrap">
-      <div class="form-title">Link Game Baru</div>
+      <div class="form-title" id="gameFormTitle">Link Game Baru</div>
       <div class="form-grid">
         <div class="form-left">
           <input class="form-input" type="text" id="fTitle" placeholder="Judul game"/>
@@ -207,9 +209,10 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  const API = 'https://script.google.com/macros/s/AKfycbxuFuVO_5zaXdBPS_G2DGzbXtM4-3W6lkxDU61BCxNzcob7pYAdx4Jgf4CnzcCLhwn-AA/exec';
+  const API = 'https://script.google.com/macros/s/AKfycbzni2_pE0v67z9q3qUKSd2uYE6CB6g3Z3yg0IfADGwYxVRkzxJXYt7uO7_e-IgbEn1M0A/exec';
   let games = [];
   let deleteTarget = null;
+  let editTarget = null;
   let gameImgBase64 = null;
   let aboutImgBase64 = null;
 
@@ -257,6 +260,9 @@
     el.innerHTML = list.map(g=>`
       <div class="game-item" data-id="${g.id}" data-title="${g.title.replace(/"/g,'&quot;')}">
         <span title="${g.title}">${g.title}</span>
+        <button class="edit-btn" title="Edit">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </button>
         <button class="del-btn" title="Hapus">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/>
@@ -268,11 +274,13 @@
   }
 
   // ===== GAME FORM =====
-  function showGameForm(){
+  function showGameForm(isEdit=false){
     closeSidebar();
+    editTarget = null;
     document.getElementById('idleMsg').style.display='none';
     document.getElementById('aboutFormWrap').classList.remove('show');
     document.getElementById('gameFormWrap').classList.add('show');
+    document.getElementById('gameFormTitle').textContent = 'Link Game Baru';
     document.getElementById('fTitle').value='';
     document.getElementById('fDesc').value='';
     document.getElementById('fLink').value='';
@@ -280,7 +288,34 @@
     document.getElementById('fImg').value='';
     document.getElementById('gameImgPreview').style.display='none';
     document.getElementById('gameImgLabel').style.display='flex';
+    document.getElementById('gameFinishBtn').textContent='Simpan';
     gameImgBase64=null;
+    document.getElementById('fTitle').focus();
+  }
+
+  function showEditForm(id){
+    const g = games.find(x=>x.id===id);
+    if(!g) return;
+    closeSidebar();
+    editTarget = id;
+    document.getElementById('idleMsg').style.display='none';
+    document.getElementById('aboutFormWrap').classList.remove('show');
+    document.getElementById('gameFormWrap').classList.add('show');
+    document.getElementById('gameFormTitle').textContent = 'Edit Game';
+    document.getElementById('fTitle').value = g.title||'';
+    document.getElementById('fDesc').value = g.desc||'';
+    document.getElementById('fLink').value = g.link||'';
+    document.getElementById('fImgUrl').value = g.image&&!g.image.startsWith('data:') ? g.image : '';
+    document.getElementById('gameFinishBtn').textContent='Update';
+    gameImgBase64 = g.image&&g.image.startsWith('data:') ? g.image : null;
+    if(g.image){
+      document.getElementById('gameImgPreview').src=g.image;
+      document.getElementById('gameImgPreview').style.display='block';
+      document.getElementById('gameImgLabel').style.display='none';
+    } else {
+      document.getElementById('gameImgPreview').style.display='none';
+      document.getElementById('gameImgLabel').style.display='flex';
+    }
     document.getElementById('fTitle').focus();
   }
   function hideGameForm(){
@@ -328,12 +363,23 @@
     const btn=document.getElementById('gameFinishBtn');
     btn.disabled=true;btn.textContent='Menyimpan...';
     try {
-      const id='g'+Date.now();
-      const res=await apiGet({action:'add',id,title,desc,link,image});
-      if(res.status==='ok'){await loadGames();hideGameForm();showToast('Game berhasil ditambahkan!','ok');}
-      else{showToast('Gagal menyimpan!','err');}
+      let res;
+      if(editTarget){
+        // Mode edit: delete lama + add baru dengan ID sama
+        res = await apiGet({action:'edit', id:editTarget, title, desc, link, image});
+      } else {
+        const id='g'+Date.now();
+        res = await apiGet({action:'add', id, title, desc, link, image});
+      }
+      if(res.status==='ok'){
+        await loadGames();
+        hideGameForm();
+        showToast(editTarget ? 'Game berhasil diupdate!' : 'Game berhasil ditambahkan!','ok');
+        editTarget=null;
+      } else { showToast('Gagal menyimpan!','err'); }
     }catch(e){showToast('Error: '+e.message,'err');}
-    btn.disabled=false;btn.textContent='Simpan';
+    btn.disabled=false;
+    btn.textContent=editTarget?'Update':'Simpan';
   }
 
   // ===== ABOUT FORM =====
@@ -439,12 +485,12 @@
     document.getElementById('sidebarOverlay').classList.remove('show');
   }
 
-  // Event delegation untuk tombol hapus
+  // Event delegation untuk tombol hapus dan edit
   document.getElementById('gameList').addEventListener('click', function(e){
     const item = e.target.closest('.game-item');
     if(!item) return;
-    if(!e.target.closest('.del-btn')) return;
-    askDelete(item.dataset.id, item.dataset.title);
+    if(e.target.closest('.del-btn')) askDelete(item.dataset.id, item.dataset.title);
+    if(e.target.closest('.edit-btn')) showEditForm(item.dataset.id);
   });
 
   loadGames();
