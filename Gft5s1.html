@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mamana AF - Admin</title>
+<title>Mang F Space</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet"/>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
-  :root{--bg:#02181f;--sidebar:#021a22;--card:#042530;--cyan:#00d4e8;--cyan2:#00b8c8;--text:#c8f0f5;--muted:#5a9aaa;--danger:#e84040;}
+  :root{--bg:#000000;--sidebar:#000000;--card:#000000;--cyan:#00ff0d;--cyan2:#00ff1e;--text:#00ff00;--muted:#00d327;--danger:#d9ff00;}
   body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
 
-  header{background:linear-gradient(90deg,#021f28,#043a48);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--cyan);flex-shrink:0;}
+  header{background: black/*linear-gradient(90deg,#021f28,#043a48)*/;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--cyan);flex-shrink:0;}
   header h1{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--cyan);letter-spacing:2px;font-style:italic;flex:1;text-align:center;}
   .menu-btn{background:none;border:none;color:var(--cyan);cursor:pointer;padding:4px;display:none;}
   .logout-header-btn{background:none;border:1.5px solid #0a4a58;color:var(--muted);padding:5px 10px;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.8rem;white-space:nowrap;transition:all 0.2s;}
@@ -22,22 +22,22 @@
   .sidebar{width:220px;background:var(--sidebar);border-right:1px solid #0a3a45;display:flex;flex-direction:column;flex-shrink:0;transition:transform 0.3s;}
   .search-box{padding:12px;border-bottom:1px solid #0a3a45;}
   .search-wrap{position:relative;}
-  .search-wrap input{width:100%;background:#021820;border:1.5px solid var(--cyan);color:var(--text);padding:8px 36px 8px 12px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:0.95rem;outline:none;}
+  .search-wrap input{width:100%;background:#000000;border:1.5px solid var(--cyan);color:var(--text);padding:8px 36px 8px 12px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:0.95rem;outline:none;}
   .search-wrap input::placeholder{color:var(--muted);}
   .search-wrap svg{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--cyan);}
   .game-list{flex:1;overflow-y:auto;padding:8px;}
   .game-list::-webkit-scrollbar{width:4px;}
   .game-list::-webkit-scrollbar-thumb{background:var(--cyan2);border-radius:4px;}
-  .game-item{width:100%;background:#021e28;border:1.5px solid #0a4a58;color:var(--text);padding:10px;margin-bottom:6px;border-radius:6px;display:flex;align-items:center;justify-content:space-between;}
+  .game-item{width:100%;background:#000000;border:1.5px solid #6fff00;color:var(--text);padding:10px;margin-bottom:6px;border-radius:6px;display:flex;align-items:center;justify-content:space-between;}
   .game-item span{font-size:0.9rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .del-btn{background:none;border:none;color:var(--muted);cursor:pointer;padding:2px 4px;flex-shrink:0;}
   .del-btn:hover{color:var(--danger);}
   .edit-btn{background:none;border:none;color:var(--muted);cursor:pointer;padding:2px 4px;flex-shrink:0;}
   .edit-btn:hover{color:var(--cyan);}
   .sidebar-actions{padding:10px;display:flex;flex-direction:column;gap:8px;border-top:1px solid #0a3a45;}
-  .add-btn{width:100%;background:var(--cyan);color:#021820;border:none;padding:10px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;cursor:pointer;}
+  .add-btn{width:100%;background:var(--cyan);color:#092002;border:none;padding:10px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;cursor:pointer;}
   .add-btn:hover{background:var(--cyan2);}
-  .about-edit-btn{width:100%;background:#021e28;border:1.5px solid var(--cyan);color:var(--cyan);padding:8px;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.85rem;transition:all 0.2s;}
+  .about-edit-btn{width:100%;background:#032c01;border:1.5px solid var(--cyan);color:var(--cyan);padding:8px;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.85rem;transition:all 0.2s;}
   .about-edit-btn:hover{background:var(--cyan);color:#021820;}
 
   /* CONTENT */
